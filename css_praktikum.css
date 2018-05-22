@@ -87,3 +87,39 @@ p{
     display: table;
     clear: both;
 }
+
+.logo {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.gumbRegistracija{
+	background-color: #B49B7F;
+	border: none;
+}
+
+.gumbRegistracija:hover{
+	background-color: #a1825e;
+	border: none;
+}
+
+.gumbIzbira{
+	background-color: #A6BA22;
+	border: none;
+}
+
+.gumbIzbira:hover{
+	background-color: #A6BA22;
+	border: none;
+}
+
+.gumbIzbira:active{
+	background-color: #A6BA22;
+	border: none;
+}
+
+.gumbIzbira:active:focus{
+	background-color: #A6BA22;
+	border: none;
+}
