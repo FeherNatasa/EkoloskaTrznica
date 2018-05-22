@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registracija</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="koda/css_praktikum.css">
+</head>
+<body class="ozadje">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="domov.html">Domov</a></li>
+        <li><a href="onas.html">O nas</a></li>
+        <li><a href="kmetije.html">Kmetije</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="vpis.html"><span class="glyphicon glyphicon-log-in"></span> Vpis</a></li>
+		<li><a href="registracija.html"><span class="glyphicon glyphicon-registration-mark"></span> Registracija</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">    
+	<div class="row main">
+		<div class="main-login main-center">
+			<form class="" method="post" action="#">
+				<div class="form-group">
+					<label for="ime" class="cols-sm-2 control-label">Ime</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-user"><i class="fa fa-user fa" aria-hidden="true"></i></span></span>
+							<input type="text" class="form-control" name="ime" id="ime"  placeholder="Vnesite ime in priimek"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="cols-sm-2 control-label">E-naslov</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="email" id="email"  placeholder="Vnesite e-naslov"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="tip" class="cols-sm-2 control-label">Tip uporabnika:</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+							<select class="form-control" name="tip" id="tip">
+								<option>Kupec</option>
+								<option>Prodajalec</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="vzdevek" class="cols-sm-2 control-label">Uporabniško ime</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="vzdevek" id="vzdevek"  placeholder="Vnesite uporanbiško ime"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="geslo" class="cols-sm-2 control-label">Geslo</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+							<input type="password" class="form-control" name="geslo" id="geslo"  placeholder="Vnesite geslo"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="potrdiGeslo" class="cols-sm-2 control-label">Ponovite geslo</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+							<input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group ">
+					<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Registriraj se</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div><br>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>
