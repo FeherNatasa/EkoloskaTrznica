@@ -61,3 +61,29 @@ a:hover {
 	background-color: #a1825e;
 	border: none;
 }
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px;
+}
+
+.left , .right{
+  width: 25%;
+}
+.right{
+	background-color: White;
+}
+p{
+	font: "Museo";
+}
+.middle{
+  width: 50%;
+  background-color: White;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
