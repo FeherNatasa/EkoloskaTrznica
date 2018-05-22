@@ -19,4 +19,28 @@ public class MainController {
         model.addAttribute("message", this.message);
         return "welcome";
     }
+
+    @RequestMapping(value = { "/", "/domov" }, method = RequestMethod.GET)
+    public String domov(Model model) {
+        model.addAttribute("message", this.message);
+        return "domov";
+    }
+
+    @RequestMapping(value = { "/", "/registracija" }, method = RequestMethod.GET)
+    public String registracija(Model model) {
+        model.addAttribute("message", this.message);
+        return "registracija";
+    }
+
+    @RequestMapping(value = { "/", "/kmetije" }, method = RequestMethod.GET)
+    public String kmetije(Model model) {
+        model.addAttribute("message", this.message);
+        return "kmetije";
+    }
+
+    @RequestMapping(value = { "/", "/onas" }, method = RequestMethod.GET)
+    public String oNas(Model model) {
+        model.addAttribute("message", this.message);
+        return "onas";
+    }
 }
