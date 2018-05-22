@@ -51,3 +51,13 @@ a:hover {
 .spanheader{
 	float:right;
 }
+
+.gumbRegistracija{
+	background-color: #B49B7F;
+	border: none;
+}
+
+.gumbRegistracija:hover{
+	background-color: #a1825e;
+	border: none;
+}
