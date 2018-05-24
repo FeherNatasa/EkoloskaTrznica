@@ -43,4 +43,10 @@ public class MainController {
         model.addAttribute("message", this.message);
         return "onas";
     }
+
+    @RequestMapping(value = { "/", "/kontakt" }, method = RequestMethod.GET)
+    public String kontakti(Model model) {
+        model.addAttribute("message", this.message);
+        return "kontakt";
+    }
 }

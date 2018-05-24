@@ -25,7 +25,7 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png">
+                <img class="logo img-fluid" src="slike/eko2.png" alt="help"/>
             </div>
             <div class="col-sm-3">
             </div>
@@ -87,21 +87,21 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-fluid" src="slike/roza.jpg" alt="slika1">
+                        <img class="img-fluid" src="../../slike/roza.jpg" alt="slika1">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="slike/pogled2.jpg" alt="...">
+                        <img src="../../slike/pogled2.jpg" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="slike/pogled3.jpg" alt="...">
+                        <img src="../../slike/pogled3.jpg" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>

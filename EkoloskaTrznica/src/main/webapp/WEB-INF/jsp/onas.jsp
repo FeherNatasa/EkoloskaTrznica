@@ -27,7 +27,7 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png">
+                <img class="logo img-fluid" src="slike/eko2.png" alt="help"/>
             </div>
             <div class="col-sm-3">
             </div>

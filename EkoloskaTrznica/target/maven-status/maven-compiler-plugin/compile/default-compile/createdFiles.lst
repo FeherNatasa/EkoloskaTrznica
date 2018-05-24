@@ -1,2 +1,5 @@
 si\feri\eko\EkoloskaTrznicaApplication.class
+si\feri\eko\baza\Uporabnik.class
 si\feri\eko\controller\MainController.class
+si\feri\eko\baza\Izdelek.class
+si\feri\eko\baza\Kmetija.class

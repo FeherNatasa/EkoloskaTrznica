@@ -3,7 +3,7 @@
 
 <html lang="sl">
 <head>
-    <title>Registracija</title>
+    <title>Kontakt</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="css/Boot.css" type="text/css" />
 
     <link href='https://www.fonts.com/font/exljbris/museo-slab?QueryFontType=Web&src=GoogleWebFonts' rel='stylesheet' type='text/css'>
+    <style>
+    </style>
 </head>
+
 <body class="ozadje">
 
 <nav class="container header">
@@ -70,7 +73,7 @@
         </div>
         <hr>
     </div>
-</nav><br/>
+</nav>
 
 <div class="container">
     <div class="row main">
@@ -78,7 +81,8 @@
         </div>
         <div class="col-sm-6">
             <div class="main-login main-center">
-                <form class="" method="post" action="#">
+                <form class="" method="post" action="mailto:someone@example.com">
+
                     <div class="form-group">
                         <label for="ime" class="cols-sm-2 control-label">Ime</label>
                         <div class="cols-sm-10">
@@ -97,73 +101,32 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="tip" class="cols-sm-2 control-label">Tip uporabnika:</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-star-empty"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
-                                <select class="form-control" name="tip" id="tip">
-                                    <option>Kupec</option>
-                                    <option>Prodajalec</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="vzdevek" class="cols-sm-2 control-label">Uporabniško ime</label>
+                        <label for="vzdevek" class="cols-sm-2 control-label">Sporočilo:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="vzdevek" id="vzdevek"  placeholder="Vnesite uporanbiško ime"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="geslo" class="cols-sm-2 control-label">Geslo</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="geslo" id="geslo"  placeholder="Vnesite geslo"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="potrdiGeslo" class="cols-sm-2 control-label">Ponovite geslo</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico -->
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla"/>
+                                <textarea rows="7" cols="69"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
-                        <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button gumbRegistracija">Registriraj se</a>
-                    </div>
+                        <a type="button" id="button" class="btn btn-primary btn-lg btn-block login-button gumbRegistracija">Pošlji</a>
+                    </div></br>
+                    </br>
+                    <p class="kontakt"> EKO Hiška <p>
+                    <p class="kontakt"> ekohiska@info.com</p>
+                    <p class="kontakt">000000000
+
                 </form>
+                <div class="col-sm-3">
+                </div>
             </div>
         </div>
-        <div class="col-sm-3">
-        </div>
     </div>
-</div><br>
-
+</div>
 <footer class="container-fluid text-center footer">
-    <div class="row">
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-3">
-            <p class="font"><b> Kontakt </b><p>
-            <hr class="crta">
-            1-800-000-0000
-        </div>
-        <div class="col-sm-3">
-            <p class="font"><b> Informacije </b><p>
-            <hr class="crta">
-            info@mysite.com
-        </div>
-        <div class="col-sm-3">
-        </div>
-    </div>
 </footer>
 
 </body>
