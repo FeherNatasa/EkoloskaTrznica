@@ -21,10 +21,11 @@ public class UporabnikDao
     JdbcTemplate jdbcTemplate;
 
 
-    public int dodajUporabnika(String ime, String priimek, String email, String uporabniskoIme, String geslo)
+    public int dodajUporabnika(String Ime, String Priimek, String Email, String UporabniskoIme, String Geslo)
     {
-        String sql = "INSERT into uporabnik(Ime,Priimek,Email,UporabniskoIme,Geslo) values(?,?,?,?,?)";
-        return jdbcTemplate.update(sql, new Object[]{ime, priimek, email, uporabniskoIme, geslo});
+        String sql = "insert into EKOHISKA.uporabnik (ime,priimek,email,uporabniskoIme,geslo) values(?,?,?,?,?)";
+       // String sql = "INSERT into ekohiska.uporabnik(Ime,Priimek,Email,UporabniskoIme,Geslo) values(?,?,?,?,?)";
+        return jdbcTemplate.update(sql, new Object[]{Ime, Priimek, Email, UporabniskoIme, Geslo});
     }
 
     public boolean obstaja(String uporabniskoIme){

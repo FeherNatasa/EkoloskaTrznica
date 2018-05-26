@@ -18,8 +18,14 @@ public class BazaController {
     @Autowired
     UporabnikDao uporabnikDao;
 
+    @RequestMapping(value = { "/", "/registracija" }, method = RequestMethod.GET)
+    public String registracija(Model model) {
+        model.addAttribute("message", this.message);
+        return "registracija";
+    }
+
     @RequestMapping(value = {"/", "/registracija"}, method = RequestMethod.POST)
-    public String dodajOsebo(@RequestParam(value = "Ime", required = true) String Ime,
+    public String dodajUporabnika(@RequestParam(value = "Ime", required = true) String Ime,
                                @RequestParam(value = "Priimek", required = true) String Priimek,
                                @RequestParam(value = "Email", required = true) String Email,
                                @RequestParam(value = "UporabniskoIme", required = true) String UporabniskoIme,

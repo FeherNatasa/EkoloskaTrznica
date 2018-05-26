@@ -26,12 +26,6 @@ public class MainController {
         return "domov";
     }
 
-    @RequestMapping(value = { "/", "/registracija" }, method = RequestMethod.GET)
-    public String registracija(Model model) {
-        model.addAttribute("message", this.message);
-        return "registracija";
-    }
-
     @RequestMapping(value = { "/", "/kmetije" }, method = RequestMethod.GET)
     public String kmetije(Model model) {
         model.addAttribute("message", this.message);

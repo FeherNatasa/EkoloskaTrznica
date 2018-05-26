@@ -19,8 +19,8 @@
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-		<a class="tekst" href="vpis.html">Vpis</a>
-		<a class="tekst" href="registracija.html">Registracija</a>
+		<a class="tekst" href="vpis">Vpis</a>
+		<a class="tekst" href="registracija">Registracija</a>
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
@@ -36,10 +36,10 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-1">
-                <a class="tekst" href="domov.html">Domov</a>
+                <a class="tekst" href="domov">Domov</a>
             </div>
             <div class="col-sm-1">
-                <a class="tekst" href="onas.html">O nas</a>
+                <a class="tekst" href="onas">O nas</a>
             </div>
             <div class="col-sm-1">
                 <a class="tekst" href="#">Kmetije</a>
@@ -48,7 +48,7 @@
                 <a class="tekst" href="#">Produkti</a>
             </div>
             <div class="col-sm-1">
-                <a class="tekst" href="kontakt.html#">Kontakt</a>
+                <a class="tekst" href="kontakt">Kontakt</a>
             </div>
             <div class="col-sm-1">
                 <a class="tekst" href="#">Košarica</a>
@@ -127,15 +127,17 @@
                             </div>
                         </div>
                     </div>
+                    <!--
                     <div class="form-group">
                         <label for="potrdiGeslo" class="cols-sm-2 control-label">Ponovite geslo</label>
                         <div class="cols-sm-10">
-                            <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico -->
+                            <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
+                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke
                             </div>
                         </div>
                     </div>
+        -->
                     <div class="form-group ">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button gumbRegistracija">Registriraj se</button>
                     </div>
