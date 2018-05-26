@@ -45,8 +45,8 @@
                     <button class="tekst gumbIzbira btn btn-default dropdown-toggle " type="button" data-toggle="dropdown">Kmetije
                     </button>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Dropdown header 1</li>
-                        <li><a href="#">HTML</a></li>
+                        <li class="dropdown-header"><a href="kmetije">Kmetije</a></li>
+                        <li><a href="kmetija1">Kmetija1</a></li>
                         <li><a href="#">CSS</a></li>
                         <li><a href="#">JavaScript</a></li>
                         <li class="divider"></li>
@@ -81,27 +81,19 @@
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-fluid" src="../../slike/roza.jpg" alt="slika1">
+                        <img class="img-fluid" src="slike/miklKmetija.png" alt="Kmetija meseca">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="../../slike/pogled2.jpg" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>...</h5>
-                            <p>...</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="../../slike/pogled3.jpg" alt="...">
+                        <img src="slike/zelenjava.png" alt="Zelenjava">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>

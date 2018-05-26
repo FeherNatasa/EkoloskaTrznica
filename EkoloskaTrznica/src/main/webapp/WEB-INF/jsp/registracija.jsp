@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
+
 <html lang="sl">
 <head>
     <title>Registracija</title>
@@ -9,24 +10,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="css/Boot.css" type="text/css" />
-
     <link href='https://www.fonts.com/font/exljbris/museo-slab?QueryFontType=Web&src=GoogleWebFonts' rel='stylesheet' type='text/css'>
+
 </head>
 <body class="ozadje">
 
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-		<a class="tekst" href="vpis">Vpis</a>&nbsp&nbsp
-		<a class="tekst" href="registracija">Registracija</a>
+		<a class="tekst" href="vpis.html">Vpis</a>
+		<a class="tekst" href="registracija.html">Registracija</a>
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png" alt="help"/>
+                <img class="logo img-fluid" src="slike/eko2.png">
             </div>
             <div class="col-sm-3">
             </div>
@@ -36,34 +36,22 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-1">
-                <a href="domov" class="gumbIzbira tekst btn btn-info " role="button">Domov</a>
+                <a class="tekst" href="domov.html">Domov</a>
             </div>
             <div class="col-sm-1">
-                <a href="onas" class="gumbIzbira tekst btn btn-info" role="button">O nas</a>
+                <a class="tekst" href="onas.html">O nas</a>
             </div>
             <div class="col-sm-1">
-                <div class="dropdown">
-                    <button class="tekst gumbIzbira btn btn-default dropdown-toggle " type="button" data-toggle="dropdown">Kmetije
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">Dropdown header 1</li>
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header 2</li>
-                        <li><a href="#">About Us</a></li>
-                    </ul>
-                </div>
+                <a class="tekst" href="#">Kmetije</a>
             </div>
             <div class="col-sm-1">
-                <a href="onas" class="gumbIzbira tekst btn btn-info" role="button">Produkti</a>
+                <a class="tekst" href="#">Produkti</a>
             </div>
             <div class="col-sm-1">
-                <a href="kontakt" class="gumbIzbira tekst btn btn-info" role="button">Kontakt</a>
+                <a class="tekst" href="kontakt.html#">Kontakt</a>
             </div>
             <div class="col-sm-1">
-                <a href="#" class="gumbIzbira tekst btn btn-info" role="button">Košarica</a>
+                <a class="tekst" href="#">Košarica</a>
             </div>
             <div class="col-sm-3 ">
             </div>
@@ -78,13 +66,13 @@
         </div>
         <div class="col-sm-6">
             <div class="main-login main-center">
-                <form class="" method="post" action="#">
+                <form name="myform" class="" method="post" action="#" >
                     <div class="form-group">
                         <label for="ime" class="cols-sm-2 control-label">Ime</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"><i class="fa fa-user fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="ime" id="ime"  placeholder="Vnesite ime in priimek"/>
+                                <input type="text" class="form-control" name="ime" id="ime" placeholder="Vnesite ime in priimek" required pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
                             </div>
                         </div>
                     </div>
@@ -93,7 +81,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"><i class="fa fa-envelope fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="email" id="email"  placeholder="Vnesite e-naslov"/>
+                                <input type="text" class="form-control" name="email" id="email"  placeholder="Vnesite e-naslov" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                             </div>
                         </div>
                     </div>
@@ -102,7 +90,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-star-empty"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
-                                <select class="form-control" name="tip" id="tip">
+                                <select class="form-control" name="tip" id="tip" required>
                                     <option>Kupec</option>
                                     <option>Prodajalec</option>
                                 </select>
@@ -114,7 +102,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="vzdevek" id="vzdevek"  placeholder="Vnesite uporanbiško ime"/>
+                                <input type="text" class="form-control" name="vzdevek" id="vzdevek"  placeholder="Vnesite uporanbiško ime" required pattern="^[a-z0-9_-]{3,15}$"/> <!-- male crke, stevilke, podcrtaji, 3-15 znakov -->
                             </div>
                         </div>
                     </div>
@@ -123,7 +111,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="geslo" id="geslo"  placeholder="Vnesite geslo"/>
+                                <input type="password" class="form-control" name="geslo" id="geslo"  placeholder="Vnesite geslo" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
                             </div>
                         </div>
                     </div>
@@ -132,13 +120,14 @@
                         <div class="cols-sm-10">
                             <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico -->
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla"/>
+                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
-                        <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button gumbRegistracija">Registriraj se</a>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button gumbRegistracija">Registriraj se</button>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -146,6 +135,8 @@
         </div>
     </div>
 </div><br>
+
+
 
 <footer class="container-fluid text-center footer">
     <div class="row">
@@ -167,4 +158,17 @@
 </footer>
 
 </body>
+<script>
+    var geslo = document.getElementById("geslo")
+        , potrdi = document.getElementById("potrdiGeslo");
+    function validatePassword(){
+        if(geslo.value != potrdi.value) {
+            potrdi.setCustomValidity("Gesli se ne ujemata");
+        } else {
+            potrdi.setCustomValidity('');
+        }
+    }
+    geslo.onchange = validatePassword;
+    potrdi.onkeyup = validatePassword;
+</script>
 </html>

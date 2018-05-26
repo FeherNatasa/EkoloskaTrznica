@@ -51,8 +51,8 @@
                     <button class="tekst gumbIzbira btn btn-default dropdown-toggle " type="button" data-toggle="dropdown">Kmetije
                     </button>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">Dropdown header 1</li>
-                        <li><a href="#">HTML</a></li>
+                        <li class="dropdown-header"><a href="kmetije">Kmetije</a></li>
+                        <li><a href="kmetija1">Kmetija1</a></li>
                         <li><a href="#">CSS</a></li>
                         <li><a href="#">JavaScript</a></li>
                         <li class="divider"></li>

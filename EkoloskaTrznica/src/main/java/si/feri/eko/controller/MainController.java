@@ -49,4 +49,10 @@ public class MainController {
         model.addAttribute("message", this.message);
         return "kontakt";
     }
+
+    @RequestMapping(value = { "/", "/kmetija1" }, method = RequestMethod.GET)
+    public String kmetija1(Model model) {
+        model.addAttribute("message", this.message);
+        return "kmetija1";
+    }
 }

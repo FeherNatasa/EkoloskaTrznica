@@ -1,9 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
+
 <html lang="sl">
 <head>
-    <title>O nas</title>
+    <title>Kmetije</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,11 +13,14 @@
 
     <link rel="stylesheet" href="css/Boot.css" type="text/css" />
 
+
     <link href='https://www.fonts.com/font/exljbris/museo-slab?QueryFontType=Web&src=GoogleWebFonts' rel='stylesheet' type='text/css'>
     <style>
     </style>
 </head>
+
 <body>
+
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
@@ -72,37 +76,64 @@
         <hr>
     </div>
 </nav>
-<div  class="body">
-<div class="row">
-    <div class="column left">
-        <img src="slike/eko2.png" class="onas" height="100px" width="300px" align="right">
-    </div>
-    <div class="column middle">
-        <p>Vizija podjetja EKO Hiška je približati <b>ekološke</b> pridelke vsakemu kupcu na čim <b>preprostejši</b> in <b>cenovno ugoden</b> način. </p>
-        Z namenom spodbujanja lokalne pridelave in povečevanjem samooskrbe s hrano v domačem okolju ter tudi širše po celotni Sloveniji, smo soustvarili
-        spletno stran, ki potencialnim strankam ponuja informacije glede ekoloških kmetij pri nas.
-        V EKO Hiški najdete kmetije po celotni Sloveniji, ki se ukvarjajo izključno s pridelavo ter prodajo ekoloških izdelkov in pridelkov.
-        Omogočamo vam izbiro ter nakup izdelkov preko naše spletne strani, ali rezervacijo teh izdelkov ter lasten prevzem na določeni kmetiji.
-        Prav tako smo izdelali tudi nekaj posebnih zabojčkov, ki jih lahko mesečno prejemate na dom, ponujamo opcijo zelenjavnih, sadnih ali mešanih zabojčkov.
-        Vsem sodelujočim pri EKO Hiški je skupen interes povezan nastop na trgu ter skupna promocija ekoloških kmetij ter njihovih pridelkov.
-
-    </div>
-    <div class="column right barva">
-        <p> <b>Avtorji: </b></p></br>
-        <p><img src="slike/teja3.jpg" class="avtor" height="60px" width="60px">Teja Boršić </p></br>
-        <p><img src="slike/natasa.jpg" class="avtor" height="60px" width="60px"> Nataša Feher </p></br>
-        <p><img src="slike/pina.jpg" class="avtor" height="60px" width="60px"> Pina Gornik </p></br>
-        <p><img src="slike/maja.jpg" class="avtor" height="60px" width="60px"> Maja Kitek </p></br>
-    </div>
-</div>
 
 
-</br>
-</br></br></br>
+<div class ="body"> <!-- body -->
 
-</div>
-<footer class="container-fluid text-center footer">
-</footer>
+    <div class=container>
 
+        <h2>Kmetija ime</h2>
+        <br>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img class="slikaProdukt img-responsive rounded" src="https://www.regiovitalis.si/img/w800-c4x3/upload/gallery/70/turisticna-kmetija-ferencovi.jpg">
+            </div>
+
+            <div class="col-sm-1 text-left">
+            </div>
+            <div class="col-sm-7 text-left">
+                <h4>O nas</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-sm-4 text-left">
+                <h4>Nalov</h4>
+                <h4>Kontakt</h4>
+                <h4>Prevzem</h4>
+            </div>
+        </div>
+        <br><br><br>
+
+        <h3>Naša ponudba:</h3>
+        <div class="row">
+            <div class="col-sm-3 text-center">
+                <img class="slikaProdukt img-responsive rounded" src="http://www.apiturizem.si/wp-content/uploads/2014/10/6.jpg">
+                <h5>Cena</h5>
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <img class="slikaProdukt img-responsive rounded" src=http://www.palomahotels.com/PalomaHotels.AdminWeb/Public/Images/Experiences/concept-organic-farm.jpg>
+                <h5>Cena</h5>
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <img class="slikaProdukt img-responsive rounded" src=http://www.turisticna-zveza.si/Ocenjevanje/71/image018.jpg>
+                <h5>Cena</h5>
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <img class="slikaProdukt img-responsive rounded" src=http://www.turisticna-zveza.si/Ocenjevanje/71/image018.jpg>
+                <h5>Cena</h5>
+            </div>
+        </div>
+
+    </div> <!-- container -->
+</div> <!-- body -->
 </body>
 </html>

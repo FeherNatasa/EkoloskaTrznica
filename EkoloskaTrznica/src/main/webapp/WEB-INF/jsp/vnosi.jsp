@@ -73,32 +73,8 @@
     </div>
 </nav>
 <div  class="body">
-<div class="row">
-    <div class="column left">
-        <img src="slike/eko2.png" class="onas" height="100px" width="300px" align="right">
-    </div>
-    <div class="column middle">
-        <p>Vizija podjetja EKO Hiška je približati <b>ekološke</b> pridelke vsakemu kupcu na čim <b>preprostejši</b> in <b>cenovno ugoden</b> način. </p>
-        Z namenom spodbujanja lokalne pridelave in povečevanjem samooskrbe s hrano v domačem okolju ter tudi širše po celotni Sloveniji, smo soustvarili
-        spletno stran, ki potencialnim strankam ponuja informacije glede ekoloških kmetij pri nas.
-        V EKO Hiški najdete kmetije po celotni Sloveniji, ki se ukvarjajo izključno s pridelavo ter prodajo ekoloških izdelkov in pridelkov.
-        Omogočamo vam izbiro ter nakup izdelkov preko naše spletne strani, ali rezervacijo teh izdelkov ter lasten prevzem na določeni kmetiji.
-        Prav tako smo izdelali tudi nekaj posebnih zabojčkov, ki jih lahko mesečno prejemate na dom, ponujamo opcijo zelenjavnih, sadnih ali mešanih zabojčkov.
-        Vsem sodelujočim pri EKO Hiški je skupen interes povezan nastop na trgu ter skupna promocija ekoloških kmetij ter njihovih pridelkov.
 
-    </div>
-    <div class="column right barva">
-        <p> <b>Avtorji: </b></p></br>
-        <p><img src="slike/teja3.jpg" class="avtor" height="60px" width="60px">Teja Boršić </p></br>
-        <p><img src="slike/natasa.jpg" class="avtor" height="60px" width="60px"> Nataša Feher </p></br>
-        <p><img src="slike/pina.jpg" class="avtor" height="60px" width="60px"> Pina Gornik </p></br>
-        <p><img src="slike/maja.jpg" class="avtor" height="60px" width="60px"> Maja Kitek </p></br>
-    </div>
-</div>
-
-
-</br>
-</br></br></br>
+    <h2>VNOSI</h2>
 
 </div>
 <footer class="container-fluid text-center footer">
