@@ -3,7 +3,7 @@
 
 <html lang="sl">
 <head>
-    <title>O nas</title>
+    <title>Vnosi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -75,6 +75,26 @@
 <div  class="body">
 
     <h2>VNOSI</h2>
+
+    <table border="1" style="width:100%; padding:50px;">
+        <tr>
+            <th>Ime</th>
+            <th>Priimek</th>
+            <th>Email</th>
+            <th>Uporabnisko ime</th>
+            <th>Geslo</th>
+        <tr>
+
+            <c:forEach  items="${Uporabniki}" var ="u">
+        <tr>
+            <td>${u.ime} </td>
+            <td>${u.priimek} </td>
+            <td>${u.email} </td>
+            <td>${u.uporabniskoIme} </td>
+            <td>${u.geslo} </td>
+        </tr>
+        </c:forEach>
+    </table>
 
 </div>
 <footer class="container-fluid text-center footer">

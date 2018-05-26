@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import si.feri.eko.baza.Uporabnik;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ public class UporabnikDao
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
 
     public int dodajUporabnika(String ime, String priimek, String email, String uporabniskoIme, String geslo)
     {
@@ -33,6 +35,23 @@ public class UporabnikDao
             return false;
         }
         return true;
+    }
+
+    public List<Uporabnik> vsiUporabniki(){
+        String sql = "SELECT * FROM uporabnik"; //sql query
+        List<Uporabnik> ret = new ArrayList<Uporabnik>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            String Ime = (String)row.get("Ime");
+            String Priimek = (String) row.get("Priimek");
+            String Email = (String)row.get("Email");
+            String UporabniskoIme = (String)row.get("Ime");
+            String Geslo = (String) row.get("Geslo");
+
+
+            ret.add(new Uporabnik(Ime, Priimek, Email, UporabniskoIme, Geslo));
+        }
+        return ret;
     }
 
     public boolean pravilnoGeslo(String uporabniskoIme, String geslo){

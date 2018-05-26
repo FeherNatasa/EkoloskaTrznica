@@ -61,18 +61,28 @@
 </nav><br/>
 
 <div class="container">
+    <form>
     <div class="row main">
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6">
             <div class="main-login main-center">
-                <form name="myform" class="" method="post" action="#" >
+                <form method="POST" action="/registracija">
                     <div class="form-group">
                         <label for="ime" class="cols-sm-2 control-label">Ime</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"><i class="fa fa-user fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="ime" id="ime" placeholder="Vnesite ime in priimek" required pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
+                                <input type="text" class="form-control" name="Ime" id="ime" placeholder="Vnesite ime" required pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ime" class="cols-sm-2 control-label">Priimek</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"><i class="fa fa-user fa" aria-hidden="true"></i></span></span>
+                                <input type="text" class="form-control" name="Priimek" id="priimek" placeholder="Vnesite priimek" required pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
                             </div>
                         </div>
                     </div>
@@ -81,10 +91,11 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"><i class="fa fa-envelope fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="email" id="email"  placeholder="Vnesite e-naslov" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                <input type="text" class="form-control" name="Email" id="email"  placeholder="Vnesite e-naslov" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                             </div>
                         </div>
                     </div>
+                    <!--
                     <div class="form-group">
                         <label for="tip" class="cols-sm-2 control-label">Tip uporabnika:</label>
                         <div class="cols-sm-10">
@@ -97,12 +108,13 @@
                             </div>
                         </div>
                     </div>
+                    -->
                     <div class="form-group">
-                        <label for="vzdevek" class="cols-sm-2 control-label">Uporabniško ime</label>
+                        <label for="UporabniskoIme" class="cols-sm-2 control-label">Uporabniško ime</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="vzdevek" id="vzdevek"  placeholder="Vnesite uporanbiško ime" required pattern="^[a-z0-9_-]{3,15}$"/> <!-- male crke, stevilke, podcrtaji, 3-15 znakov -->
+                                <input type="text" class="form-control" name="UporabniskoIme" id="UporabniskoIme"  placeholder="Vnesite uporanbiško ime" required pattern="^[a-z0-9_-]{3,15}$"/> <!-- male crke, stevilke, podcrtaji, 3-15 znakov -->
                             </div>
                         </div>
                     </div>
@@ -111,7 +123,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="geslo" id="geslo"  placeholder="Vnesite geslo" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
+                                <input type="password" class="form-control" name="Geslo" id="geslo"  placeholder="Vnesite geslo" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
                             </div>
                         </div>
                     </div>
