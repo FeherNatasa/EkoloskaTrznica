@@ -38,6 +38,27 @@ public class BazaController {
         }
     }
 
+
+    @RequestMapping(value = { "/", "/bla" }, method = RequestMethod.GET)
+    public String bla(Model model) {
+        model.addAttribute("message", this.message);
+        return "bla";
+    }
+
+    @RequestMapping(value = {"/", "/bla"}, method = RequestMethod.POST)
+    public String dodajUporabnikaa(@RequestParam(value = "Ime", required = true) String Ime,
+                                  @RequestParam(value = "Priimek", required = true) String Priimek,
+                                  @RequestParam(value = "Email", required = true) String Email,
+                                  @RequestParam(value = "UporabniskoIme", required = true) String UporabniskoIme,
+                                  @RequestParam(value = "Geslo", required = true) String Geslo) {
+        {
+
+            uporabnikDao.dodajUporabnika(Ime, Priimek, Email, UporabniskoIme, Geslo);
+
+            return "redirect:/vnosi"; //return "/seznamOseb";
+        }
+    }
+
     @RequestMapping(value = {"/vnosi"}, method = RequestMethod.GET)
     public String vnosi(Model model) {
         model.addAttribute("Uporabniki", uporabnikDao.vsiUporabniki());

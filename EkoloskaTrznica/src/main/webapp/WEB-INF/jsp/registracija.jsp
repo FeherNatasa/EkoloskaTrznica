@@ -61,7 +61,7 @@
 </nav><br/>
 
 <div class="container">
-    <form>
+
     <div class="row main">
         <div class="col-sm-3">
         </div>
@@ -73,16 +73,16 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"><i class="fa fa-user fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="Ime" id="ime" placeholder="Vnesite ime" required pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
+                                <input type="text" class="form-control" name="Ime" id="ime" placeholder="Vnesite ime" required pattern="[a-zA-Z]{1,15}">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ime" class="cols-sm-2 control-label">Priimek</label>
+                       <label for="ime" class="cols-sm-2 control-label">Priimek</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"><i class="fa fa-user fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="Priimek" id="priimek" placeholder="Vnesite priimek" required pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)">
+                                <input type="text" class="form-control" name="Priimek" id="priimek" placeholder="Vnesite priimek" required pattern="[a-zA-Z]{1,15}">
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     </div>
                     -->
                     <div class="form-group">
-                        <label for="UporabniskoIme" class="cols-sm-2 control-label">Uporabniško ime</label>
+                       <label for="UporabniskoIme" class="cols-sm-2 control-label">Uporabniško ime</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="geslo" class="cols-sm-2 control-label">Geslo</label>
+                       <label for="geslo" class="cols-sm-2 control-label">Geslo</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
@@ -127,17 +127,17 @@
                             </div>
                         </div>
                     </div>
-                    <!--
+
                     <div class="form-group">
                         <label for="potrdiGeslo" class="cols-sm-2 control-label">Ponovite geslo</label>
                         <div class="cols-sm-10">
-                            <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico
+                            <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico -->
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke
+                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
                             </div>
                         </div>
                     </div>
-        -->
+
                     <div class="form-group ">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button gumbRegistracija">Registriraj se</button>
                     </div>

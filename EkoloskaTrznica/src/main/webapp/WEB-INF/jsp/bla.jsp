@@ -63,6 +63,11 @@
 <h2>Dodaj</h2>
 
 
+
+
+
+
+
 <form method="POST" action="/bla">
     <p> Ime: <input type="text" name="Ime" /> </p><br />
     <p> Priimek: <input type="text" name="Priimek" /> </p><br />
