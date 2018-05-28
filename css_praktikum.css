@@ -104,6 +104,7 @@ p{
 	border: none;
 }
 
+
 .kontakt {
 	font-size: 15px;
 	font-weight: bold;
@@ -123,4 +124,22 @@ p{
     max-height: 200px;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.gumbKupi{
+	background-color: #A6BA22;
+	border: none;
+	width: 150px !important;
+}
+
+.gumbPreklici{
+	background-color: #9aac20;
+	border: none;
+	width: 150px !important;
+}
+
+.gumbKupi:hover{
+	background-color: #A6BA22;
+	border: none;
+	width: 150px !important;
 }
