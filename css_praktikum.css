@@ -112,3 +112,15 @@ p{
 .navbar-default{
 	background-color: #A6BA22;
 }
+
+.nav.navbar-nav li a {
+	color: white;
+	text-align: center;
+}
+
+.table-wrapper-2 {
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
