@@ -104,27 +104,11 @@ p{
 	border: none;
 }
 
-.gumbIzbira{
-	background-color: #A6BA22;
-	border: none;
-}
-
-.gumbIzbira:hover{
-	background-color: #A6BA22;
-	border: none;
-}
-
-.gumbIzbira:active{
-	background-color: #A6BA22;
-	border: none;
-}
-
-.gumbIzbira:active:focus{
-	background-color: #A6BA22;
-	border: none;
-}
-
 .kontakt {
 	font-size: 15px;
 	font-weight: bold;
+}
+
+.navbar-default{
+	background-color: #A6BA22;
 }
