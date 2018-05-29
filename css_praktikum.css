@@ -70,16 +70,17 @@ a:hover {
 
 .left , .right{
   width: 25%;
+  background-color: #B49B7F;
 }
 .right{
-	background-color: White;
+	background-color: #B49B7F;
 }
 p{
 	font: "Museo";
 }
 .middle{
   width: 50%;
-  background-color: White;
+  background-color: #B49B7F;
 }
 
 .row:after {
