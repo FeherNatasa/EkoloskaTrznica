@@ -112,6 +112,7 @@ p{
 
 .navbar-default{
 	background-color: #A6BA22;
+	border: none;
 }
 
 .nav.navbar-nav li a {
