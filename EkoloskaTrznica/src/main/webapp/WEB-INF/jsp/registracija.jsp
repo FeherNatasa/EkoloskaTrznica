@@ -12,8 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/Boot.css" type="text/css" />
     <link href='https://www.fonts.com/font/exljbris/museo-slab?QueryFontType=Web&src=GoogleWebFonts' rel='stylesheet' type='text/css'>
-
 </head>
+
 <body class="ozadje">
 <nav class="container header">
     <div class="container-fluid text-center">
@@ -102,7 +102,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-users fa" aria-hidden="true"></i></span></span>
-                                <input type="text" class="form-control" name="UporabniskoIme" id="UporabniskoIme"  placeholder="Vnesite uporanbiško ime" required pattern="^[a-z0-9_-]{3,15}$"/> <!-- male crke, stevilke, podcrtaji, 3-15 znakov -->
+                                <input type="text" class="form-control" name="UporabniskoIme" id="UporabniskoIme"  title="Uporabite lahko male črke, številke, podrčrtaje" placeholder="Vnesite uporanbiško ime" required pattern="^[a-z0-9_-]{3,15}$"/> <!-- male crke, stevilke, podcrtaji, 3-15 znakov -->
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="Geslo" id="geslo"  placeholder="Vnesite geslo" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
+                                <input type="password" class="form-control" name="Geslo" id="geslo" title="Uporabite lahko velike in male črke ter številke"  placeholder="Vnesite geslo" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group"> <!-- ta glyphicon se mora ob pravilnem ponovnem vnosu gesla spremenit v kljukico -->
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span></span>
-                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
+                                <input type="password" class="form-control" name="potrdiGeslo" id="potrdiGeslo" title="Uporabite lahko velike in male črke ter številke"  placeholder="Ponoven vnos gesla" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"/> <!-- velika, mala, stevilke -->
                             </div>
                         </div>
                     </div>
