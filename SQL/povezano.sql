@@ -1,3 +1,14 @@
+/*SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE `ekohiska`.`Uporabnik`;
+DROP TABLE `ekohiska`.`Kraj`;
+DROP TABLE `ekohiska`.`Naslov`;
+DROP TABLE `ekohiska`.`Kmetija`;
+DROP TABLE `ekohiska`.`Izdelek`;
+DROP TABLE `ekohiska`.`Ponudba`;
+DROP TABLE `ekohiska`.`TipUporabnika`;
+SET FOREIGN_KEY_CHECKS = 1;
+*/
+
 CREATE TABLE IF NOT EXISTS`ekohiska`.`Uporabnik` (
   `idUporabnik` INT NOT NULL AUTO_INCREMENT,
   `ime` VARCHAR(45) NOT NULL,
@@ -33,11 +44,22 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ekohiska`.`Kmetija` (
   `idKmetija` INT NOT NULL AUTO_INCREMENT,
   `naziv` VARCHAR(45) NOT NULL,
-  `opis` VARCHAR(500) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `telefonskaStevilka` VARCHAR(9) NOT NULL,
+  `prevzem` VARCHAR(100) NOT NULL,
+  `opis` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`idKmetija`))
 ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `ekohiska`.`Izdelek` (
+  `idIzdelek` INT NOT NULL AUTO_INCREMENT,
+  `naziv` VARCHAR(45) NOT NULL,
+  `masa` DOUBLE NOT NULL,
+  `cena` DOUBLE NOT NULL,
+  PRIMARY KEY (`idIzdelek`))
+ENGINE = InnoDB;
+
+
 
 CREATE TABLE IF NOT EXISTS `ekohiska`.`Ponudba` (
   `idPonudba` INT NOT NULL AUTO_INCREMENT,
@@ -66,11 +88,31 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`TipUporabnika` (
   `email` VARCHAR(45) NOT NULL,
   `telefonskaStevilka` VARCHAR(9) NOT NULL,
   `tk_idPonudba` INT NOT NULL,
-  PRIMARY KEY (`idKmetija`),
+  PRIMARY KEY (`idTipUporabnika`),
   INDEX `fk_TipUporabnika_Ponudba_idx` (`tk_idPonudba` ASC),
   CONSTRAINT `fk_TipUporabnika_Ponudba`
     FOREIGN KEY (`tk_idPonudba`)
     REFERENCES `ekohiska`.`Ponudba` (`idPonudba`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS`ekohiska`.`Kosarica` (
+  `idKosarica` INT NOT NULL AUTO_INCREMENT,
+  `steviloArtiklov` INTEGER NOT NULL,
+  PRIMARY KEY (`idKosarica`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS`ekohiska`.`Racun` (
+  `idRacun` INT NOT NULL AUTO_INCREMENT,
+  `stevilkaracuna` INTEGER NOT NULL,
+  `datumVeljavnosti` DATE NOT NULL,
+  PRIMARY KEY (`idRacun`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `ekohiska`.`Paket` (
+  `idPaket` INT NOT NULL AUTO_INCREMENT,
+  `naziv` VARCHAR(45) NOT NULL,
+  `cena` DOUBLE NOT NULL,
+  PRIMARY KEY (`idPaket`))
 ENGINE = InnoDB;
