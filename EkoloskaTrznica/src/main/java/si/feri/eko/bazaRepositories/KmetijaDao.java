@@ -16,10 +16,10 @@ public class KmetijaDao
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int dodajKmetijo(String naziv, String opis, String email, String telefonskaStevilka)
+    public int dodajKmetijo(String naziv, String email, String telefonskaStevilka, String prevzem, String opis)
     {
-        String sql = "INSERT into kmetija(Naziv,Opis,Email,TelefonskaStevilka) values(?,?,?,?)";
-        return jdbcTemplate.update(sql, new Object[]{naziv, opis, email, telefonskaStevilka});
+        String sql = "insert into EKOHISKA.kmetija (naziv, email, telefonskaStevilka, prevzem, opis) values(?,?,?,?,?)";
+        return jdbcTemplate.update(sql, new Object[]{naziv, email, telefonskaStevilka, prevzem, opis});
     }
 
     public boolean obstaja(String naziv){
@@ -57,15 +57,16 @@ public class KmetijaDao
     }
 
     public List<Kmetija> vseKmetije(){
-        String sql = "SELECT * FROM Kraj";
+        String sql = "SELECT * FROM Kmetija";
         List<Kmetija> ret = new ArrayList<Kmetija>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
             String naziv = (String)row.get("naziv");
-            String opis = (String)row.get("opis");
             String email = (String)row.get("email");
             String telefonskaStevilka = (String)row.get("telefonskaStevilka");
-            ret.add(new Kmetija(naziv, opis, email, telefonskaStevilka));
+            String prevzem = (String)row.get("prevzem");
+            String opis = (String)row.get("opis");
+            ret.add(new Kmetija(naziv, email, telefonskaStevilka, prevzem, opis));
         }
         return ret;
     }

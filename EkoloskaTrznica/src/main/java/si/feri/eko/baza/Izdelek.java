@@ -8,10 +8,12 @@ public class Izdelek{
     private int id;
 
     private String naziv;
+    private double masa;
     private double cena;
 
-    public Izdelek(String naziv, double cena) {
+    public Izdelek(String naziv, double masa, double cena) {
         this.naziv = naziv;
+        this.masa = masa;
         this.cena = cena;
     }
 
@@ -31,11 +33,20 @@ public class Izdelek{
         this.cena = cena;
     }
 
+    public double getMasa() {
+        return masa;
+    }
+
+    public void setMasa(double masa) {
+        this.masa = masa;
+    }
+
     @Override
     public String toString() {
         return "Izdelek{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
+                ", masa='" + masa + '\'' +
                 ", cena='" + cena + '\'' +
                 '}';
     }

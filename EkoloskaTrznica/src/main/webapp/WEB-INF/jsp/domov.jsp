@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
+
 <html lang="sl">
 <head>
     <title>Domov</title>
@@ -12,61 +13,41 @@
 
     <link rel="stylesheet" href="css/Boot.css" type="text/css" />
 
+
     <link href='https://www.fonts.com/font/exljbris/museo-slab?QueryFontType=Web&src=GoogleWebFonts' rel='stylesheet' type='text/css'>
+    <style>
+    </style>
 </head>
 <body>
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-		<a class="tekst" href="vpis">Vpis</a>&nbsp&nbsp
-		<a class="tekst" href="registracija">Registracija</a>
+        <a href="profil">Moj profil</a>&nbsp&nbsp
+		<a href="vpis">Vpis</a>&nbsp&nbsp
+		<a href="registracija">Registracija</a>
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png" alt="help"/>
+                <img class="logo img-fluid" src="slike/eko2.png">
             </div>
             <div class="col-sm-3">
             </div>
         </div>
-        <br/>
-        <div class="row ">
-            <div class="col-sm-3">
+        <br/><br/>
+        <nav class="navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" role="tablist">
+                    <li><a href="domov">Domov</a></li>
+                    <li><a href="onas">O nas</a></li>
+                    <li><a href="kmetije">Kmetije</a></li>
+                    <li><a href="dodajanjeProduktov">Produkti</a></li>
+                    <li><a href="kontakt">Kontakt</a></li>
+                    <li><a href="kosarica">Košarica</a></li>
+                </ul>
             </div>
-            <div class="col-sm-1">
-                <a href="domov" class="gumbIzbira tekst btn btn-info " role="button">Domov</a>
-            </div>
-            <div class="col-sm-1">
-                <a href="onas" class="gumbIzbira tekst btn btn-info" role="button">O nas</a>
-            </div>
-            <div class="col-sm-1">
-                <div class="dropdown">
-                    <button class="tekst gumbIzbira btn btn-default dropdown-toggle " type="button" data-toggle="dropdown">Kmetije
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header"><a href="kmetije">Kmetije</a></li>
-                        <li><a href="kmetija1">Kmetija1</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header 2</li>
-                        <li><a href="#">About Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-1">
-                <a href="onas" class="gumbIzbira tekst btn btn-info" role="button">Produkti</a>
-            </div>
-            <div class="col-sm-1">
-                <a href="kontakt" class="gumbIzbira tekst btn btn-info" role="button">Kontakt</a>
-            </div>
-            <div class="col-sm-1">
-                <a href="#" class="gumbIzbira tekst btn btn-info" role="button">Košarica</a>
-            </div>
-            <div class="col-sm-3 ">
-            </div>
-        </div>
+        </nav>
         <hr>
     </div>
 </nav>
@@ -81,19 +62,27 @@
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-fluid" src="slike/miklKmetija.png" alt="Kmetija meseca">
+                        <img class="img-fluid" src="slike/miklKmetija.png" alt="kmetija meseca">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="slike/zelenjava.png" alt="Zelenjava">
+                        <img src="slike/zelenjava.png" alt="zelenjava">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="slike/polje.png" alt="polje">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>...</h5>
                             <p>...</p>

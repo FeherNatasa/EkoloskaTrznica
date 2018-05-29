@@ -20,61 +20,40 @@
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-		<a class="tekst" href="vpis">Vpis</a>&nbsp&nbsp
-		<a class="tekst" href="registracija">Registracija</a>
+        <a href="profil">Moj profil</a>&nbsp&nbsp </br>
+        <a href="vpis">Vpis</a>&nbsp&nbsp
+		<a href="registracija">Registracija</a>
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png" alt="help"/>
+                <img class="logo img-fluid" src="slike/eko2.png">
             </div>
             <div class="col-sm-3">
             </div>
         </div>
-        <br/>
-        <div class="row ">
-            <div class="col-sm-3">
+        <br/><br/>
+        <nav class="navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" role="tablist">
+                    <li><a href="domov">Domov</a></li>
+                    <li><a href="onas">O nas</a></li>
+                    <li><a href="kmetije">Kmetije</a></li>
+                    <li><a href="dodajanjeProduktov">Produkti</a></li>
+                    <li><a href="kontakt">Kontakt</a></li>
+                    <li><a href="kosarica">Košarica</a></li>
+                </ul>
             </div>
-            <div class="col-sm-1">
-                <a href="domov" class="gumbIzbira tekst btn btn-info " role="button">Domov</a>
-            </div>
-            <div class="col-sm-1">
-                <a href="onas" class="gumbIzbira tekst btn btn-info" role="button">O nas</a>
-            </div>
-            <div class="col-sm-1">
-                <div class="dropdown">
-                    <button class="tekst gumbIzbira btn btn-default dropdown-toggle " type="button" data-toggle="dropdown">Kmetije
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">Dropdown header 1</li>
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header 2</li>
-                        <li><a href="#">About Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-1">
-                <a href="onas" class="gumbIzbira tekst btn btn-info" role="button">Produkti</a>
-            </div>
-            <div class="col-sm-1">
-                <a href="kontakt" class="gumbIzbira tekst btn btn-info" role="button">Kontakt</a>
-            </div>
-            <div class="col-sm-1">
-                <a href="#" class="gumbIzbira tekst btn btn-info" role="button">Košarica</a>
-            </div>
-            <div class="col-sm-3 ">
-            </div>
-        </div>
+        </nav>
         <hr>
     </div>
 </nav>
 <div  class="body">
 
     <h2>VNOSI</h2>
+
+    <h3>DODAJANJE OSEB</h3>
 
     <table border="1" style="width:100%; padding:50px;">
         <tr>
@@ -92,6 +71,46 @@
             <td>${u.email} </td>
             <td>${u.uporabniskoIme} </td>
             <td>${u.geslo} </td>
+        </tr>
+        </c:forEach>
+    </table>
+
+    <h3>DODAJANJE KMETIJ</h3>
+
+    <table border="1" style="width:100%; padding:50px;">
+        <tr>
+            <th>Naziv</th>
+            <th>Email</th>
+            <th>Telefonska stevilka</th>
+            <th>Prevzem</th>
+            <th>Opis</th>
+        <tr>
+
+            <c:forEach  items="${Kmetije}" var ="k">
+        <tr>
+            <td>${k.naziv} </td>
+            <td>${k.email} </td>
+            <td>${k.telefonskaStevilka} </td>
+            <td>${k.prevzem} </td>
+            <td>${k.opis} </td>
+        </tr>
+        </c:forEach>
+    </table>
+
+    <h3>DODAJANJE PRODUKTOV</h3>
+
+    <table border="1" style="width:100%; padding:50px;">
+        <tr>
+            <th>Naziv</th>
+            <th>Masa</th>
+            <th>Cena</th>
+        <tr>
+
+            <c:forEach  items="${Izdelki}" var ="i">
+        <tr>
+            <td>${i.naziv} </td>
+            <td>${i.masa} </td>
+            <td>${i.cena} </td>
         </tr>
         </c:forEach>
     </table>

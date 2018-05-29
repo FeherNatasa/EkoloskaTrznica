@@ -7,7 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import si.feri.eko.bazaRepositories.IzdelekDao;
+import si.feri.eko.bazaRepositories.KmetijaDao;
 import si.feri.eko.bazaRepositories.UporabnikDao;
+
+import java.util.List;
 
 @Controller
 public class BazaController {
@@ -17,6 +21,12 @@ public class BazaController {
 
     @Autowired
     UporabnikDao uporabnikDao;
+
+    @Autowired
+    KmetijaDao kmetijaDao;
+
+    @Autowired
+    IzdelekDao izdelekDao;
 
     @RequestMapping(value = { "/", "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
@@ -34,7 +44,7 @@ public class BazaController {
 
            uporabnikDao.dodajUporabnika(Ime, Priimek, Email, UporabniskoIme, Geslo);
 
-            return "redirect:/vnosi"; //return "/seznamOseb";
+            return "redirect:/vnosi";
         }
     }
 
@@ -55,14 +65,76 @@ public class BazaController {
 
             uporabnikDao.dodajUporabnika(Ime, Priimek, Email, UporabniskoIme, Geslo);
 
-            return "redirect:/vnosi"; //return "/seznamOseb";
+            return "redirect:/vnosi";
+        }
+    }
+
+    @RequestMapping(value = { "/", "/dodajanjeKmetije" }, method = RequestMethod.GET)
+    public String dodajanjeKmetije(Model model) {
+        model.addAttribute("message", this.message);
+        return "vnosKmetije";
+    }
+
+    @RequestMapping(value = {"/", "/dodajanjeKmetije"}, method = RequestMethod.POST)
+    public String dodajanjeKmetijee(@RequestParam(value = "Naziv", required = true) String Naziv,
+                                   @RequestParam(value = "Email", required = true) String Email,
+                                   @RequestParam(value = "TelefonskaStevilka", required = true) String TelefonskaStevilka,
+                                   @RequestParam(value = "Prevzem", required = true) String Prevzem,
+                                   @RequestParam(value = "Opis", required = true) String Opis) {
+        {
+
+            kmetijaDao.dodajKmetijo(Naziv, Email, TelefonskaStevilka, Prevzem, Opis);
+
+            return "redirect:/vnosi";
+        }
+    }
+
+    @RequestMapping(value = { "/", "/dodajanjeProduktov" }, method = RequestMethod.GET)
+    public String dodajanjeProduktov(Model model) {
+        model.addAttribute("message", this.message);
+        return "vnosProduktov";
+    }
+
+    @RequestMapping(value = {"/", "/dodajanjeProduktov"}, method = RequestMethod.POST)
+    public String dodajanjeProduktovv(@RequestParam(value = "Naziv", required = true) String Naziv,
+                                    @RequestParam(value = "Masa", required = true) double Masa,
+                                    @RequestParam(value = "Cena", required = true) double Cena) {
+        {
+
+            izdelekDao.dodajIzdelek(Naziv, Masa, Cena);
+
+            return "redirect:/vnosi";
         }
     }
 
     @RequestMapping(value = {"/vnosi"}, method = RequestMethod.GET)
     public String vnosi(Model model) {
         model.addAttribute("Uporabniki", uporabnikDao.vsiUporabniki());
+        model.addAttribute("Kmetije", kmetijaDao.vseKmetije());
+        model.addAttribute("Izdelki", izdelekDao.vsiIzdelki());
         return "vnosi";
     }
 
+    @RequestMapping(value = { "/", "/vpis" }, method = RequestMethod.GET)
+    public String vpis(Model model) {
+        model.addAttribute("message", this.message);
+        return "vpis";
+    }
+
+    @RequestMapping(value = {"/", "/vpis"}, method = RequestMethod.POST)
+    public String vpiss(@RequestParam(value = "UporabniskoIme", required = true) String UporabniskoIme,
+                        @RequestParam(value = "Geslo", required = true) String Geslo) {
+        {
+            boolean fu = uporabnikDao.obstaja(UporabniskoIme, Geslo);
+
+            if(fu==true)
+            {
+                return "redirect:/profil";
+            }
+            else
+            {
+                return "redirect:/vpis";
+            }
+        }
+    }
 }

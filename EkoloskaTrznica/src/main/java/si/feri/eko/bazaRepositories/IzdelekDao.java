@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import si.feri.eko.baza.Izdelek;
+import si.feri.eko.baza.Kmetija;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,10 +21,10 @@ public class IzdelekDao
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int dodajIzdelek(String naziv, double cena)
+    public int dodajIzdelek(String naziv, double masa, double cena)
     {
-        String sql = "INSERT into izdelek(Naziv, Cena) values(?)";
-        return jdbcTemplate.update(sql, new Object[]{naziv});
+        String sql = "insert into EKOHISKA.izdelek (Naziv, Masa, Cena) values(?,?,?)";
+        return jdbcTemplate.update(sql, new Object[]{naziv, masa, cena});
     }
 
     public boolean obstaja(String naziv){
@@ -60,13 +61,16 @@ public class IzdelekDao
         return 1;
     }
 
-    public List<Izdelek> vrniVse(){
+    public List<Izdelek> vsiIzdelki(){
         String sql = "SELECT * FROM izdelek";
         List<Izdelek> ret = new ArrayList<Izdelek>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
             int id = (int)row.get("idIzdelek");
+            String naziv = (String)row.get("naziv");
+            double masa=(double)row.get("masa");
             double cena=(double)row.get("cena");
+            ret.add(new Izdelek(naziv, masa, cena));
             }
         return ret;
     }

@@ -15,12 +15,12 @@
 
 </head>
 <body class="ozadje">
-
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-		<a class="tekst" href="vpis">Vpis</a>
-		<a class="tekst" href="registracija">Registracija</a>
+        <a href="profil">Moj profil</a>&nbsp&nbsp </br>
+        <a href="vpis">Vpis</a>&nbsp&nbsp
+		<a href="registracija">Registracija</a>
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
@@ -31,37 +31,25 @@
             <div class="col-sm-3">
             </div>
         </div>
-        <br/>
-        <div class="row ">
-            <div class="col-sm-3">
+        <br/><br/>
+        <nav class="navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" role="tablist">
+                    <li><a href="domov">Domov</a></li>
+                    <li><a href="onas">O nas</a></li>
+                    <li><a href="kmetije">Kmetije</a></li>
+                    <li><a href="dodajanjeProduktov">Produkti</a></li>
+                    <li><a href="kontakt">Kontakt</a></li>
+                    <li><a href="kosarica">Košarica</a></li>
+                </ul>
             </div>
-            <div class="col-sm-1">
-                <a class="tekst" href="domov">Domov</a>
-            </div>
-            <div class="col-sm-1">
-                <a class="tekst" href="onas">O nas</a>
-            </div>
-            <div class="col-sm-1">
-                <a class="tekst" href="#">Kmetije</a>
-            </div>
-            <div class="col-sm-1">
-                <a class="tekst" href="#">Produkti</a>
-            </div>
-            <div class="col-sm-1">
-                <a class="tekst" href="kontakt">Kontakt</a>
-            </div>
-            <div class="col-sm-1">
-                <a class="tekst" href="#">Košarica</a>
-            </div>
-            <div class="col-sm-3 ">
-            </div>
-        </div>
+        </nav>
         <hr>
     </div>
-</nav><br/>
+</nav>
 
 <div class="container">
-
+    <br>
     <div class="row main">
         <div class="col-sm-3">
         </div>

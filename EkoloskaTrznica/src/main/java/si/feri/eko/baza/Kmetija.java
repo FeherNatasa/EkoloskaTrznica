@@ -11,12 +11,14 @@ public class Kmetija {
     private String opis;
     private String email;
     private String telefonskaStevilka;
+    private String prevzem;
 
-    public Kmetija(String naziv, String opis, String email, String telefonskaStevilka) {
+    public Kmetija(String naziv, String opis, String email, String telefonskaStevilka, String prevzem) {
         this.naziv = naziv;
         this.opis = opis;
         this.email = email;
         this.telefonskaStevilka = telefonskaStevilka;
+        this.prevzem = prevzem;
     }
 
     public String getNaziv() {
@@ -51,6 +53,14 @@ public class Kmetija {
         this.telefonskaStevilka = telefonskaStevilka;
     }
 
+    public String getPrevzem() {
+        return prevzem;
+    }
+
+    public void setPrevzem(String prevzem) {
+        this.prevzem = prevzem;
+    }
+
     @Override
     public String toString() {
         return "Kmetija{" +
@@ -59,6 +69,7 @@ public class Kmetija {
                 ", opis='" + opis + '\'' +
                 ", email='" + email + '\'' +
                 ", telefonskaStevilka='" + telefonskaStevilka + '\'' +
+                ", prevzem='" + prevzem + '\'' +
                 '}';
     }
 }

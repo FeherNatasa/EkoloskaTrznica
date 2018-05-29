@@ -20,6 +20,42 @@
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
+        <a href="profil">Moj profil</a>&nbsp&nbsp
+        <a href="vpis">Vpis</a>&nbsp&nbsp
+		<a href="registracija">Registracija</a>
+	</span><br/>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+                <img class="logo img-fluid" src="slike/eko2.png">
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <br/><br/>
+        <nav class="navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" role="tablist">
+                    <li><a href="domov">Domov</a></li>
+                    <li><a href="onas">O nas</a></li>
+                    <li><a href="kmetije">Kmetije</a></li>
+                    <li><a href="dodajanjeProduktov">Produkti</a></li>
+                    <li><a href="kontakt">Kontakt</a></li>
+                    <li><a href="kosarica">Košarica</a></li>
+                </ul>
+            </div>
+        </nav>
+        <hr>
+    </div>
+</nav>
+
+
+
+<!--
+<nav class="container header">
+    <div class="container-fluid text-center">
+	<span class="align-text-top spanheader">
 		<a class="tekst" href="vpis">Vpis</a>&nbsp&nbsp
 		<a class="tekst" href="registracija">Registracija</a>
 	</span><br/>
@@ -72,8 +108,12 @@
         <hr>
     </div>
 </nav>
+-->
+
 <div  class="body">
 <div class="row">
+
+    <div class=container>
     <div class="column left">
         <img src="slike/eko2.png" class="onas" height="100px" width="300px" align="right">
     </div>
@@ -96,6 +136,7 @@
     </div>
 </div>
 
+</div>
 
 </br>
 </br></br></br>
