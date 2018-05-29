@@ -218,3 +218,7 @@ p{
 }
 /*konc menija */
 
+/*slajder fixed*/
+.carousel-control.right {
+    background-color: transparent;
+}
