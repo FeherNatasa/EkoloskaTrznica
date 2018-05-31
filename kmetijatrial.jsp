@@ -87,23 +87,15 @@
         <br><br><br>
 
         <h3>Naša ponudba:</h3>
-        <table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>Naziv</th>
-					<th>Masa</th>
-					<th>Cena</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach  items="${Izdelki}" var ="i">
-				<tr>
-					<td>${i.naziv}</td>
-					<td>${i.masa}</td>
-					<td>${i.cena}</td>
-				</tr>
+        <table class="table produkti">
+				<c:forEach  items="${Izdelki}" var ="i">
+					<tr class="text-center">
+						<td>slika<br/>
+						${i.naziv}<br/>
+						${i.masa}<br/>
+						${i.cena} </td>
+					</tr>
 				</c:forEach>
-			</tbody>
 		</table>
 
     </div> <!-- container -->
