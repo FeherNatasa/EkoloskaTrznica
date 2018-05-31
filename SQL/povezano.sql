@@ -48,7 +48,14 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`Kmetija` (
   `telefonskaStevilka` VARCHAR(9) NOT NULL,
   `prevzem` VARCHAR(100) NOT NULL,
   `opis` VARCHAR(500) NOT NULL,
-  PRIMARY KEY (`idKmetija`))
+  `tk_idKraj` INT NOT NULL,
+  PRIMARY KEY (`idKmetija`),
+  INDEX `fk_Kmetija_Kraj_idx` (`tk_idKraj` ASC),
+  CONSTRAINT `fk_Kmetija_Kraj`
+    FOREIGN KEY (`tk_idKraj`)
+    REFERENCES `ekohiska`.`Kraj` (`idKraj`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `ekohiska`.`Izdelek` (
@@ -56,7 +63,14 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`Izdelek` (
   `naziv` VARCHAR(45) NOT NULL,
   `masa` DOUBLE NOT NULL,
   `cena` DOUBLE NOT NULL,
-  PRIMARY KEY (`idIzdelek`))
+  `tk_idKmetija` INT NOT NULL,
+  PRIMARY KEY (`idIzdelek`),
+  INDEX `fk_Izdelek_Kmetija_idx` (`tk_idKmetija` ASC),
+  CONSTRAINT `fk_Izdelek_Kmetija`
+    FOREIGN KEY (`tk_idKmetija`)
+    REFERENCES `ekohiska`.`Kmetija` (`idKmetija`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -115,4 +129,6 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`Paket` (
   `naziv` VARCHAR(45) NOT NULL,
   `cena` DOUBLE NOT NULL,
   PRIMARY KEY (`idPaket`))
+ENGINE = InnoDB;
+
 ENGINE = InnoDB;
