@@ -127,7 +127,7 @@
                         <label for="hisnaStevilka" class="cols-sm-2 control-label">Hišna številka:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-pencil fa" aria-hidden="true"></i></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-home"><i class="fa fa-pencil fa" aria-hidden="true"></i></span></span>
                                 <input type="text" class="form-control" name="hisnaStevilka" id="hisnaStevilka"  placeholder="Vnesite hišno številko">
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                         <label for="postnaStevilka" class="cols-sm-2 control-label">Postna številka:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-pencil fa" aria-hidden="true"></i></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"><i class="fa fa-pencil fa" aria-hidden="true"></i></span></span>
                                 <input type="text" class="form-control" name="postnaStevilka" id="postnaStevilka"  placeholder="Vnesite poštno številko">
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                         <label for="regija" class="cols-sm-2 control-label">Regija:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"><i class="fa fa-pencil fa" aria-hidden="true"></i></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-tree-deciduous"><i class="fa fa-pencil fa" aria-hidden="true"></i></span></span>
                                 <input type="text" class="form-control" name="regija" id="regija"  placeholder="Vnesite regijo">
                             </div>
                         </div>
