@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+
+<html lang="sl">
 <head>
   <title>Kmetija ime</title>
   <meta charset="utf-8">
