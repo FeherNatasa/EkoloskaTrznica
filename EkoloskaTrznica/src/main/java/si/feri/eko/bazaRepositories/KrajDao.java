@@ -14,7 +14,7 @@ public class KrajDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public int dodajKraj(String postnaStevilka, String obcina, String regija)
+    public int dodajKraj(int postnaStevilka, String obcina, String regija)
     {
         String sql ="INSERT into kraj(PostnaStevilka,Obcina,Regija) values(?,?,?)";
         return jdbcTemplate.update(sql, new Object[]{postnaStevilka, obcina, regija});
@@ -25,7 +25,7 @@ public class KrajDao {
         List<Kraj> ret = new ArrayList<Kraj>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
-            String postnaStevilka = (String)row.get("postnaStevilka");
+            int postnaStevilka = (int) row.get("postnaStevilka");
             String obcina = (String)row.get("obcina");
             String regija = (String)row.get("regija");
             ret.add(new Kraj(postnaStevilka, obcina, regija));
@@ -33,7 +33,7 @@ public class KrajDao {
         return ret;
     }
 
-    public List<Integer> vrniId(String postnaStevilka, String obcina){
+    public List<Integer> vrniId(Integer postnaStevilka, String obcina){
         String sql = "SELECT idKraj FROM Kraj WHERE postnaStevilka=? AND obcina=?";
         List<Integer> ret = new ArrayList<Integer>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[]{obcina, postnaStevilka});
@@ -43,4 +43,6 @@ public class KrajDao {
         }
         return ret;
     }
+
+
 }
