@@ -75,20 +75,26 @@ public class BazaController {
         return "vnosKmetije";
     }
 
-    @RequestMapping(value = {"/", "/dodajanjeKmetije"}, method = RequestMethod.POST)
+     @RequestMapping(value = {"/", "/dodajanjeKmetije"}, method = RequestMethod.POST)
     public String dodajanjeKmetijee(@RequestParam(value = "Naziv", required = true) String Naziv,
                                    @RequestParam(value = "Email", required = true) String Email,
                                    @RequestParam(value = "TelefonskaStevilka", required = true) String TelefonskaStevilka,
                                    @RequestParam(value = "Prevzem", required = true) String Prevzem,
-                                   @RequestParam(value = "Opis", required = true) String Opis) {
+                                   @RequestParam(value = "Opis", required = true) String Opis,
+                                   @RequestParam(value = "imeUlice", required = true) String imeUlice,
+                                   @RequestParam(value = "hisnaStevilka", required = true) String hisnaStevilka,
+                                    @RequestParam(value = "postnaStevilka", required = true) int postnaStevilka,
+                                    @RequestParam(value = "obcina", required = true) String obcina,
+                                    @RequestParam(value = "regija", required = true) String regija)
+    {
         {
 
             kmetijaDao.dodajKmetijo(Naziv, Email, TelefonskaStevilka, Prevzem, Opis);
-
+            naslovDao.dodajNaslov(imeUlice, hisnaStevilka);
+            krajDao.dodajKraj(postnaStevilka, obcina, regija);
             return "redirect:/vnosi";
         }
     }
-
     @RequestMapping(value = { "/", "/dodajanjeProduktov" }, method = RequestMethod.GET)
     public String dodajanjeProduktov(Model model) {
         model.addAttribute("message", this.message);
