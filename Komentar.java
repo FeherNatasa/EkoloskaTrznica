@@ -18,4 +18,12 @@ public class Komentar{
 	public void setVsebina(String vsebina){
 		this.vsebina = vsebina;
 	}
+	
+	@Override
+    public String toString() {
+        return "Komentar{" +
+                "id=" + id +
+                ", vsebina='" + vsebina + '\'' +
+                '}';
+    }
 }
