@@ -1,0 +1,15 @@
+@RequestMapping(value={"/", "/kmetija1"}, method=RequestMethod.POST)
+	public String dodajanjeKomentarja(@RequestParam(value="vsebinaKomentar", required = true) String vsebinaKomentar)
+	{
+		komentarDao.dodajKomentar(vsebinaKomentar);
+		return "redirect:/vnosi";
+	}
+
+    @RequestMapping(value={"/", "/kmetija1" method=RequestMethod.GET)
+        public String kmetijaIzdelki(Model model){
+        model.addAttribute("Izdelki", izdelekDao.vsiIzdelki());
+		model.addAttribute("Komentar", komentarDao.vsiKomentarji());
+		model.addAttribute("Uporabniki", uporabnikiDao.vsiUporabniki());
+        return "kmetija1";
+    }
+	
