@@ -44,6 +44,13 @@ public class KomentarDao
 		return jdbcTemplate.update(sql, new Object[]{vsebina, id});
 	}
 	
+	public boolean obstaja(String vsebina)
+	{
+		String sql = "SELECT idKomentar FROM komentar WHERE vsebina= '" + vsebina + "'");
+		int id=Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
+		return id;
+	}
+	
 	public List<Komentar> vsiKomentarji(){
 		String sql = "SELECT * FROM komentar";
 		List<Izdelek> ret = new ArrayList<Izdelek>();
