@@ -26,40 +26,39 @@ nav class="container header">
 					<li class="col-sm-4">
 						<ul>
 							<li class="dropdown-header text-center">POMURSKA REGIJA</li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija2</a></li>
-							<li><a href="#">kmetija1</a></li>
+							<li><a href="ekomilanrus.html">EKO Kmetija Milan Rus</a></li>
+							<li><a href="ekomatejzadravec.html">EKO kmetija Matej Zadravec</a></li>
+							<li><a href="ekozel.html">EKO kmetija Zel</a></li>
 							<li class="divider"></li>
 							<li class="dropdown-header text-center">KOROŠKA REGIJA</li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
+							<li><a href="ekomikl.html">EKO turistična kmetija Mikl</a></li>
+							<li><a href="ekolešnik.html">EKO turistična kmetija Lešnik</a></li>
+							<li><a href="ekomežner.html">EKO kmetija Mežner</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-4">
 						<ul>
 							<li class="dropdown-header text-center">GORENJSKA REGIJA</li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
+							<li><a href="ekopavlič.html">EKO kmetija Pavlič</a></li>
+							<li><a href="ekošuštar.html">Pri Šuštarju</a></li>
+							<li><a href="ekokokalj.html">EKO kmetija Kokalj </a></li>
 							<li class="divider"></li>
 							<li class="dropdown-header text-center">PODRAVSKA REGIJA</li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
+							<li><a href="ekostergar.html">EKO kmetija Stergar</a></li>
+							<li><a href="ekokvar.html">EKO kmetija Kvas</a></li>
+							<li><a href="ekokoren.html">EKO Kmetija Koren</a></li>
 						</ul>
 					</li>
 					<li class="col-sm-4">
 						<ul>
 							<li class="dropdown-header text-center">DOLENJSKA REGIJA</li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
+							<li><a href="ekokastelic.html">Ekološka kmetija Kastelic</a></li>
+							<li><a href="ekoziherl.html">Ekološka kmetija Ziherl</a></li>
+							<li><a href="ekoraztresen.html">Turistična ekološka kmetija Raztresen</a></li>
 							<li class="divider"></li>
 							<li class="dropdown-header text-center">OSREDNJESLOVENSKA <br/>REGIJA</li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
-							<li><a href="#">kmetija1</a></li>
+							<li><a href="ekofabjan.html">EKO kmetija Fabjan</a></li>
+							<li><a href="ekoleskovgaj.html">EKO kmetija Leskov Gaj </a></li>
 						</ul>
 					</li>
 
