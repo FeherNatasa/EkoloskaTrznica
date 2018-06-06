@@ -149,6 +149,18 @@ public class BazaController {
         return "dodajSlikoKmetije";
     }
 
+    
+      @RequestMapping(value = {"/kmetije"}, method = RequestMethod.GET)
+    public String kmetijee(Model model) {
+        model.addAttribute("KmetijeP", kmetijaDao.vseKmetije());
+       model.addAttribute("KrajP", krajDao.vsiKraji());
+       model.addAttribute("Kraji", krajDao.vsiKraji());
+       model.addAttribute("Regije", krajDao.getRegije());
+
+
+        return "kmetije";
+    }
+    
     @RequestMapping(value = {"/", "/dodajanjeSlikeK"}, method = RequestMethod.POST)
     public String dodajanjeSlikeKmetije(
                                         @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map) {
