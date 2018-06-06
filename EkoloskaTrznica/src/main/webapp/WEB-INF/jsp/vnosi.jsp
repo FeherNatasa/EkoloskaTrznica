@@ -150,7 +150,8 @@
 
 
     </table>
-
+	
+	<h3> Regije </h3>
     <c:forEach  items="${Regije}" var ="i">
         <tr>
             ${Regije}
