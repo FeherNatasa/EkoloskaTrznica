@@ -26,11 +26,11 @@ public class MainController {
         return "domov";
     }
 
-    @RequestMapping(value = { "/", "/kmetije" }, method = RequestMethod.GET)
+   /* @RequestMapping(value = { "/", "/kmetije" }, method = RequestMethod.GET)
     public String kmetije(Model model) {
         model.addAttribute("message", this.message);
         return "kmetije";
-    }
+    }*/
 
     @RequestMapping(value = { "/", "/onas" }, method = RequestMethod.GET)
     public String oNas(Model model) {
