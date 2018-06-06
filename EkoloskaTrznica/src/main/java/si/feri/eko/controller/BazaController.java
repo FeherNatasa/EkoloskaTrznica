@@ -143,4 +143,35 @@ public class BazaController {
             }
         }
     }
+    @RequestMapping(value = { "/", "/dodajanjeSlikeK" }, method = RequestMethod.GET)
+    public String dodajanjeSlikeKmetije(Model model) {
+        model.addAttribute("message", this.message);
+        return "dodajSlikoKmetije";
+    }
+
+    @RequestMapping(value = {"/", "/dodajanjeSlikeK"}, method = RequestMethod.POST)
+    public String dodajanjeSlikeKmetije(
+                                        @ModelAttribute("uploadForm") FileUploadForm uploadForm, Model map) {
+        String urlSlike="";
+        {
+            try{
+                List<MultipartFile> files = uploadForm.getFiles();
+                List<String> fileNames = new ArrayList<String>();
+                if(null != files && files.size() > 0) {
+                    for (MultipartFile multipartFile : files) {
+                        String fileName;
+                        fileName   = multipartFile.getOriginalFilename();
+                        fileNames.add(fileName);
+                        SlikeDao.saveKmetija(multipartFile, urlSlike);
+                    }
+                }
+                map.addAttribute("files", fileNames);
+
+            }catch (NullPointerException e){
+                System.out.println("Nobena slika ni bila dodana");
+            }
+
+            return "redirect:/vnosi";
+        }
+    }
 }
