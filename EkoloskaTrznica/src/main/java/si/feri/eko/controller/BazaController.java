@@ -19,6 +19,7 @@ public class BazaController {
     @Value("${welcome.message}")
     private String message = "Hello World";
 
+
     @Autowired
     UporabnikDao uporabnikDao;
 
@@ -27,6 +28,12 @@ public class BazaController {
 
     @Autowired
     IzdelekDao izdelekDao;
+
+    @Autowired
+    NaslovDao naslovDao;
+
+    @Autowired
+    KrajDao krajDao;
 
     @RequestMapping(value = { "/", "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
