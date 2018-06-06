@@ -132,6 +132,33 @@
     </table>
 	
 	
+    <h3>Dodajanje krajev</h3>
+    <table border="1" style="width:100%; padding:50px;">
+        <tr>
+            <th>Posta</th>
+            <th>obcina/th>
+            <th>regija</th>
+        <tr>
+
+            <c:forEach  items="${Kraji}" var ="i">
+        <tr>
+            <td>${i.postnaStevilka}</td>
+            <td>${i.obcina}</td>
+        <td>${i.regija}</td>
+        </tr>
+        </c:forEach>
+
+
+    </table>
+
+    <c:forEach  items="${Regije}" var ="i">
+        <tr>
+            ${Regije}
+
+        </tr>
+    </c:forEach>
+    </table>
+	
 </div>
 <footer class="container-fluid text-center footer">
 </footer>
