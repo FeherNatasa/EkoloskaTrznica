@@ -44,5 +44,14 @@ public class KrajDao {
         return ret;
     }
 
-
+    public List<String> getRegije(){
+        String sql = "SELECT regija FROM Kraj";
+        List<String> ret = new ArrayList<String>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            String regija = (String) row.get("regija");
+            ret.add(regija);
+        }
+        return ret;
+    }
 }
