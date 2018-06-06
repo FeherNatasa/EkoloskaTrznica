@@ -59,19 +59,20 @@
         <h2>Pomurska regija</h2>
         <br>
         <div class="row">
+
             <div class="col-sm-4 text-center">
                 <img class="slikaProdukt img-responsive rounded" src="https://www.regiovitalis.si/img/w800-c4x3/upload/gallery/70/turisticna-kmetija-ferencovi.jpg">
-                <h5>Ime</h5>
+                <h5>ime</h5>
             </div>
 
             <div class="col-sm-4 text-center">
                 <img class="slikaProdukt img-responsive rounded" src=https://maribor-pohorje.si/images/temp/big/Izletniska_kmetija_Vida_Zunko_Slovenia_Slovenija_Maribor_Pohorje_Vladimir_Tos_2.jpg>
-                <h5>Ime</h5>
+                <h5>ime</h5>
             </div>
 
             <div class="col-sm-4 text-center">
                 <img class="slikaProdukt img-responsive rounded" src=http://www.nad1000m.si/wp-content/uploads/slika02.jpg>
-                <h5>Ime</h5>
+                <h5>ime</h5>
             </div>
         </div>
 
@@ -177,7 +178,37 @@
         </div>
     </div>
 
+
+    <div class="container">
+        <h2>Podravska regija</h2>
+        <div class="row">
+
+            <c:forEach items="${KmetijeP}" var="k">
+
+                <div class="col-sm-4 text-center">
+
+                    <h5>${k.naziv}</h5>
+
+
+                </div>
+
+            </c:forEach>
+
+        </div>
+
+    </div>
+
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <footer class="container-fluid text-center footer">
     <div class="row">
@@ -196,6 +227,9 @@
         <div class="col-sm-3">
         </div>
     </div>
+
+
+
 </footer>
 
 </body>
