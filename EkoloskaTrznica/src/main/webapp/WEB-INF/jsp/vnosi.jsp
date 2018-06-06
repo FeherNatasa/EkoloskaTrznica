@@ -115,6 +115,23 @@
         </c:forEach>
     </table>
 
+	
+	 <h3>Dodajanje naslovov</h3>
+    <table border="1" style="width:100%; padding:50px;">
+        <tr>
+            <th>Ulica</th>
+            <th>Hisna stevilka</th>
+        <tr>
+
+            <c:forEach  items="${Naslovi}" var ="i">
+     <tr>
+        <td>${i.imeUlice}</td>
+        <td>${i.hisnaStevilka}</td>
+    </tr>
+        </c:forEach>
+    </table>
+	
+	
 </div>
 <footer class="container-fluid text-center footer">
 </footer>
