@@ -151,14 +151,6 @@
 
     </table>
 	
-	<h3> Regije </h3>
-    <c:forEach  items="${Regije}" var ="i">
-        <tr>
-            ${Regije}
-
-        </tr>
-    </c:forEach>
-    </table>
 	
 </div>
 <footer class="container-fluid text-center footer">
