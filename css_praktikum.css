@@ -285,3 +285,8 @@ p{
 table.produkti{
     border: none;
 }
+
+.slikaProduktKmetija{
+	width: 200px;
+	height: 200px;
+}
