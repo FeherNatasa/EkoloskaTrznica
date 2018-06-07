@@ -16,8 +16,6 @@ CREATE TABLE IF NOT EXISTS`ekohiska`.`Uporabnik` (
   `email` VARCHAR(45) NOT NULL,
   `uporabniskoIme` VARCHAR(9) NOT NULL,
   `geslo` VARCHAR(45) NOT NULL,
-  <-- dodala za sliko -->
-  `slika` mediumblob,
   PRIMARY KEY (`idUporabnik`))
 ENGINE = InnoDB;
 
