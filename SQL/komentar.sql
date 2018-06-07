@@ -17,3 +17,15 @@ CREATE TABLE IF NOT EXISTS 'ekohiska'.'komentar'(
 		)
 	ENGINE = InnoDB;
  
+ CREATE TABLE IF NOT EXISTS 'ekohiska'.'ocena'(
+	'id' INT NOT NULL AUTO_INCREMENT,
+	'kmetija_ocena' INT NOT NULL,
+	PRIMARY KEY ('id'),
+	INDEX 'fk_ocena_kmetija_idx'('tk_idKmetija' ASC),
+	CONSTRAINT 'fk_ocena_kmetija'
+		FOREIGN KEY('tk_idKmetija')
+		REFERENCES 'ekohiska'.'kmetija'('idKmetija')
+		ON DELETE CASCADE
+		ON UPDATE NO ACTION
+	)
+	ENGINE = InnoDB;
