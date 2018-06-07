@@ -161,26 +161,26 @@
                 </c:forEach>--%>
                 <tr>
                     <td class="text-center">
-                        <img class="img-fluid slikaProdukt" src="../../slike/produkt_kasa.jpg">
+                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_kasa.jpg">
 
                         <h4>Prosena kaša &nbsp<a><span class="glyphicon glyphicon-plus"></a></h4>
                         <h5>1kg</h5>
                         <h5>2,99€</h5>
                     </td>
                     <td class="text-center">
-                        <img class="img-fluid slikaProdukt" src="../../slike/produkt_moka.jpg">
+                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_moka.jpg">
                         <h4>Koruzna moka &nbsp <a><span class="glyphicon glyphicon-plus"></a></h4>
                         <h5>1kg</h5>
                         <h5>3,99€</h5>
                     </td>
                     <td class="text-center">
-                        <img class="img-fluid slikaProdukt" src="../../slike/produkt_olje.jpg">
+                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_olje.jpg">
                         <h4>Bučno olje  &nbsp<a><span class="glyphicon glyphicon-plus"></a></h4>
                         <h5>1kg</h5>
                         <h5>1,99€</h5>
                     </td>
                     <td class="text-center">
-                        <img class="img-fluid slikaProdukt" src="../../slike/produkt_zdrob.jpg">
+                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_zdrob.jpg">
                         <h4>Koruzni zdrob &nbsp <a><span class="glyphicon glyphicon-plus"></a></h4>
                         <h5>1kg</h5>
                         <h5>3,99€</h5>
