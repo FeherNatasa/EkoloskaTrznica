@@ -55,7 +55,16 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`Kmetija` (
     FOREIGN KEY (`tk_idKraj`)
     REFERENCES `ekohiska`.`Kraj` (`idKraj`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION),
+             
+               <-- dodatek za rating -->
+  INDEX 'fk_kmetija_ocena_idx' ('tk_idOcena' ASC),
+  CONSTRAINT 'fk_kmetija_ocena'
+    FOREIGN KEY ('tk_idKraj')
+    REFERENCES 'ekohiska'.'ocena' ('idOcena')
+    ON DELETE CASCADE
+               ON UPDATE NO ACTION)
+               
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `ekohiska`.`Izdelek` (
