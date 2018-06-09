@@ -9,6 +9,20 @@ DROP TABLE `ekohiska`.`TipUporabnika`;
 SET FOREIGN_KEY_CHECKS = 1;
 */
 
+
+CREATE TABLE IF NOT EXISTS `ekohiska`.`SlikaK`(
+	`id_SlikaK` INTEGER NOT NULL AUTO_INCREMENT,
+    `Datoteka` MEDIUMBLOB, 
+    `tk_idKmetija` INTEGER NOT NULL,
+    PRIMARY KEY (`id_SlikaK`),
+    INDEX `fk_Slika_Kmetija1_idx` (`tk_idKmetija` ASC),
+  CONSTRAINT `fk_Slika_Kmetija`
+    FOREIGN KEY (`tk_idKmetija`)
+    REFERENCES `ekohiska`.`Kmetija` (`idKmetija`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 CREATE TABLE IF NOT EXISTS`ekohiska`.`Uporabnik` (
   `idUporabnik` INT NOT NULL AUTO_INCREMENT,
   `ime` VARCHAR(45) NOT NULL,
@@ -141,23 +155,4 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`Paket` (
 ENGINE = InnoDB;
 
 ENGINE = InnoDB;
-               
- CREATE TABLE IF NOT EXISTS `ekohiska`.`Slike` (
-  `idSlika` INT NOT NULL AUTO_INCREMENT,
-  `urlSlike` MEDIUMBLOB NOT NULL,
-  `tk_idIzdelek` INT NOT NULL,
-  `tk_idKmetija` INT NOT NULL,
-  PRIMARY KEY (`idSlika`),
-  INDEX `fk_slika_Izdelek_idx` (`tk_idIzdelek` ASC),
-  INDEX `fk_slika_Kmetija_idx` (`tk_idKmetija` ASC),
-  CONSTRAINT `fk_Slika_Izdelek`
-    FOREIGN KEY (`tk_idIzdelek`)
-    REFERENCES `ekohiska`.`Izdelek` (`idIzdelek`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Slika_Kmetija`
-    FOREIGN KEY (`tk_idKmetija`)
-    REFERENCES `ekohiska`.`Kmetija` (`idKmetija`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ 
