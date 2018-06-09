@@ -34,6 +34,9 @@ public class BazaController {
 
     @Autowired
     KrajDao krajDao;
+    
+      @Autowired
+    SlikaDao slikaDao;
 
     @RequestMapping(value = { "/", "/registracija" }, method = RequestMethod.GET)
     public String registracija(Model model) {
@@ -92,16 +95,35 @@ public class BazaController {
                                    @RequestParam(value = "hisnaStevilka", required = true) String hisnaStevilka,
                                     @RequestParam(value = "postnaStevilka", required = true) int postnaStevilka,
                                     @RequestParam(value = "obcina", required = true) String obcina,
-                                    @RequestParam(value = "regija", required = true) String regija)
-    {
-        {
-
-            kmetijaDao.dodajKmetijo(Naziv, Email, TelefonskaStevilka, Prevzem, Opis);
+                                    @RequestParam(value = "regija", required = true) String regija,
+                                    @ModelAttribute("uploadForm") FileUploadForm uploadForm) {
+        
+         kmetijaDao.dodajKmetijo(Naziv, Email, TelefonskaStevilka, Prevzem, Opis);
             naslovDao.dodajNaslov(imeUlice, hisnaStevilka);
             krajDao.dodajKraj(postnaStevilka, obcina, regija);
+   try {
+            List<MultipartFile> files = uploadForm.getFiles();
+            List<String> fileNames = new ArrayList<String>();
+            if (null != files && files.size() > 0) {
+                for (MultipartFile multipartFile : files) {
+                    String fileName;
+                    fileName = multipartFile.getOriginalFilename();
+                    fileNames.add(fileName);
+                    slikaDao.save(multipartFile, kmetijaDao.getIdKmetije(Naziv));
+                }
+            }
+            model.addAttribute("files", fileNames);
+            System.out.print("Slika je bila dodana");
+
+        } catch (NullPointerException e) {
+            System.out.println("Slika ni bila dodana");
+            e.printStackTrace();
+        }
+        {
             return "redirect:/vnosi";
         }
     }
+    
     @RequestMapping(value = { "/", "/dodajanjeProduktov" }, method = RequestMethod.GET)
     public String dodajanjeProduktov(Model model) {
         model.addAttribute("message", this.message);
