@@ -104,6 +104,13 @@
                             </div>
                         </div>
                     </div>
+			  <div class="form-group">
+                        <label for="prevzem" class="cols-sm-2 control-label">Dodajte fotografijo:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <p class="text-left"><input type="file" name="files" accept=".jpg, .jpeg, .png" multiple></p>
+                            </div>
+                        </div>
                     <div class="form-group">
                         <label class="cols-sm-2 control-label">Opis kmetije:</label>
                         <div class="cols-sm-10">
