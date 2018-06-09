@@ -55,6 +55,21 @@ public class KmetijaDao
         }
         return 1;
     }
+    
+    public Integer getIdKmetije(String nazi){
+        int idKmetija = 0;
+        if (nazi == null){
+            return null;
+        } else {
+            String sql = "SELECT idKmetija, naziv FROM kmetija WHERE naziv= ?";
+            List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[] {nazi});
+            for (Map row:rows){
+                String naziv = (String) row.get("naziv");
+                idKmetija = (int) row.get("idKmetija");
+            }
+            return idKmetija;
+        }
+    }
 
     public List<Kmetija> vseKmetije(){
         String sql = "SELECT * FROM Kmetija";
