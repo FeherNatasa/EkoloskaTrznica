@@ -5,7 +5,7 @@ package si.feri.eko.baza;
 
 public class Kmetija {
 
-    private int id;
+  private int idKmetija;
 
     private String naziv;
     private String opis;
@@ -20,6 +20,14 @@ public class Kmetija {
         this.telefonskaStevilka = telefonskaStevilka;
         this.prevzem = prevzem;
     }
+    public Kmetija(String naziv, String opis, String email, String telefonskaStevilka, String prevzem, int id_kmetija) {
+            this.naziv = naziv;
+            this.opis = opis;
+            this.email = email;
+            this.telefonskaStevilka = telefonskaStevilka;
+            this.prevzem = prevzem;
+            this.idKmetija = id_kmetija;
+        }
 
     public String getNaziv() {
         return naziv;
@@ -60,6 +68,9 @@ public class Kmetija {
     public void setPrevzem(String prevzem) {
         this.prevzem = prevzem;
     }
+    public int getidKmetijaa() { return idKmetija; }
+
+        public void setidKmetija(int id_kmetija) { this.idKmetija = id_kmetija; }
 
     @Override
     public String toString() {
