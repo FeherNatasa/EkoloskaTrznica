@@ -100,13 +100,6 @@
     <div class ="body"> <!-- body -->
 
         <div class=container>
-            <script>
-                $(document).ready(function(){
-                    $("#prikazi").click(function(){
-                        $("#formaKomentar").show();
-                    });
-                });
-            </script>
             <h2>EKO kmetija RUS</h2>
             <br>
             <div class="row">
@@ -128,6 +121,7 @@
             <br>
             <div class="row">
                 <div class="col-sm-4 text-left">
+                    <form method="POST" action="/kmetija1">
                     <ul class="rate-area">
                         <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Odlično">5 stars</label>
                         <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Dobro">4 stars</label>
@@ -135,6 +129,10 @@
                         <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Slabo">2 stars</label>
                         <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Zelo slabo">1 star</label>
                     </ul>
+                        &nbsp&nbsp <button type="submit" class="btn btn-default">+</button>
+                       <%-- ${Ocena.kmetija_ocena}--%>
+                    </form>
+
                     <br/><br/><br/>
                     <h4>Mota 25, 9240 Ljutomer</h4>
                     <h4>+386 41914247 ali<br/>
@@ -146,46 +144,31 @@
             <br><br>
 
             <h3>Naša ponudba:</h3>
-            <table class="table produkti">
-               <%-- <c:forEach  items="${Izdelki}" var ="i">
-                    <tr class="text-center">
-                        <td>slika<br/>
-                                ${i.naziv}<br/>
-                                ${i.masa}<br/>
-                                ${i.cena} <br/>
-                            <input type="button" class="btn" value="+"/></td>
+                <table class="table produkti">
+                    <thead>
+                    <tr>
+                        <th>Slika</th>
+                        <th>Naziv</th>
+                        <th>Cena</th>
+                        <th>Količina</th>
+                        <th>Košarica</th>
                     </tr>
-                    <td>
-
-                    </td>
-                </c:forEach>--%>
-                <tr>
-                    <td class="text-center">
-                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_kasa.jpg">
-
-                        <h4>Prosena kaša &nbsp<a><span class="glyphicon glyphicon-plus"></a></h4>
-                        <h5>1kg</h5>
-                        <h5>2,99€</h5>
-                    </td>
-                    <td class="text-center">
-                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_moka.jpg">
-                        <h4>Koruzna moka &nbsp <a><span class="glyphicon glyphicon-plus"></a></h4>
-                        <h5>1kg</h5>
-                        <h5>3,99€</h5>
-                    </td>
-                    <td class="text-center">
-                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_olje.jpg">
-                        <h4>Bučno olje  &nbsp<a><span class="glyphicon glyphicon-plus"></a></h4>
-                        <h5>1kg</h5>
-                        <h5>1,99€</h5>
-                    </td>
-                    <td class="text-center">
-                        <img class="img-fluid slikaProduktKmetija" src="../../slike/produkt_zdrob.jpg">
-                        <h4>Koruzni zdrob &nbsp <a><span class="glyphicon glyphicon-plus"></a></h4>
-                        <h5>1kg</h5>
-                        <h5>3,99€</h5>
-                    </td>
-                </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach  items="${Izdelki}" var ="i">
+                    <tr>
+                        <td>slika</td>
+                        <td>${i.naziv}<a>
+                        <td>${i.masa}</td>
+                        <td> ${i.cena}</td>
+                        <td>
+                            <a href="#">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    </c:forEach>
+                    </tbody>
             </table>
 
             <!-- container -->
@@ -199,27 +182,26 @@
 
                     <div class="table-responsive">
                         <table class="table">
-
                             <tbody>
                             <c:forEach items="${Komentar}" var="comment">
-                                <c:forEach items="${Uporabniki}" var="user">
+
                                     <tr>
                                         <td>slika</td><!-- tu je uporabniška slika -->
-                                        <td>${user.UporabniskoIme}</td><!-- tu more bit za uporabnika -->
-                                        <td>${comment.vsebinaKomentar}</td>
+                                        <!-- tu more bit za uporabnika -->
+                                        <td>${comment.vsebina}</td>
                                     </tr>
-                                </c:forEach>
+
                             </c:forEach>
                             </tbody>
                         </table>
                         <br/>
 
-                        <form>
-                            <div class="form-group" id="formaKomentar" style="display: none;" method="POST" action="/kmetija1">
-                                <textarea class="form-control" id="dodajKomentar" rows="2" value="Dodajte komentar ..." name="vsebinaKomentar"></textarea>
+                        <form method="POST" action="/kmetija1">
+                            <div class="form-group" id="formaKomentar" >
+                                <textarea class="form-control" rows="2" value="Dodajte komentar ..." name="vsebina"></textarea>
                                 <br/>
+                                <button type="submit" class="btn" >Dodaj komentar</button>
                             </div>
-                            <button type="button" class="btn" id="prikazi">Dodaj komentar</button>
                         </form>
                     </div>
                 </div>
