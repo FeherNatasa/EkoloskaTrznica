@@ -9,7 +9,7 @@ DROP TABLE `ekohiska`.`TipUporabnika`;
 SET FOREIGN_KEY_CHECKS = 1;
 */
 
-
+<-- dodajanje slik kmetij -->
 CREATE TABLE IF NOT EXISTS `ekohiska`.`SlikaK`(
 	`id_SlikaK` INTEGER NOT NULL AUTO_INCREMENT,
     `Datoteka` MEDIUMBLOB, 
@@ -19,6 +19,20 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`SlikaK`(
   CONSTRAINT `fk_Slika_Kmetija`
     FOREIGN KEY (`tk_idKmetija`)
     REFERENCES `ekohiska`.`Kmetija` (`idKmetija`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+<-- dodajanje slik izdelkov -->
+CREATE TABLE IF NOT EXISTS `ekohiska`.`SlikaI`(
+	`id_SlikaI` INTEGER NOT NULL AUTO_INCREMENT,
+    `Datoteka2` MEDIUMBLOB, 
+    `tk_idIzdelek` INTEGER NOT NULL,
+    PRIMARY KEY (`id_SlikaI`),
+    INDEX `fk_Slika_Izdelek1_idx` (`tk_idIzdelek` ASC),
+  CONSTRAINT `fk_Slika_Izdelek`
+    FOREIGN KEY (`tk_idIzdelek`)
+    REFERENCES `ekohiska`.`Izdelek` (`idIzdelek`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -86,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `ekohiska`.`Izdelek` (
   `naziv` VARCHAR(45) NOT NULL,
   `masa` DOUBLE NOT NULL,
   `cena` DOUBLE NOT NULL,
-  `tk_idKmetija` INT NOT NULL,
+  `tk_idKmetija` INT,
   PRIMARY KEY (`idIzdelek`),
   INDEX `fk_Izdelek_Kmetija_idx` (`tk_idKmetija` ASC),
   CONSTRAINT `fk_Izdelek_Kmetija`
