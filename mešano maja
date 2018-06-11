@@ -1,0 +1,195 @@
+BAZA:
+
+CREATE TABLE IF NOT EXISTS `ekohiska`.`ocena`(
+	`idOcena` INT NOT NULL AUTO_INCREMENT,
+	`kmetija_ocena` INT NOT NULL,
+	PRIMARY KEY (`idOcena`),
+    `tk_idKmetija` INT,
+	INDEX `fk_ocena_kmetija_idx`(`tk_idKmetija` ASC),
+	CONSTRAINT `fk_ocena_kmetija`
+		FOREIGN KEY(`tk_idKmetija`)
+		REFERENCES `ekohiska`.`kmetija`(`idKmetija`)
+		ON DELETE CASCADE
+		ON UPDATE NO ACTION
+	)
+	ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `ekohiska`.`komentar`(
+	`idKomentar` INT NOT NULL AUTO_INCREMENT,
+	`vsebina` VARCHAR(200) NOT NULL,
+	PRIMARY KEY (`idKomentar`)
+	/*INDEX `fk_komentar_kmetija_idx`(`tk_idKmetija` ASC),
+	CONSTRAINT `fk_komentar_kmetija`
+		FOREIGN KEY(`tk_idKmetija`)
+		REFERENCES `ekohiska`.`kmetija`(`idKmetija`)
+		ON DELETE CASCADE
+		ON UPDATE NO ACTION,
+	INDEX 'fk_komentar_uporabnik_idx'('tk_idUporabnik' ASC)
+	CONSTRAINT 'fk_komentar_uporabnik'
+		FOREIGN KEY('tk_idUporabnik')
+		REFERENCES 'ekohiska'.'uporabnik'('idUporabnik')
+		ON DELETE CASCADE
+		ON UPDATE NO ACTION*/
+		)
+	ENGINE = InnoDB;
+  
+  
+  
+  
+  
+  KOMENTARDAO
+  package si.feri.eko.bazaRepositories;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import si.feri.eko.baza.Komentar;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+@Component
+public class KomentarDao
+{
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	public int dodajKomentar(String vsebina)
+	{
+		String sql = "insert into EKOHISKA.komentar(Vsebina) values(?)";
+		return jdbcTemplate.update(sql, new Object[]{vsebina});
+	}
+	
+	public int izbrisiKomentar(int id)
+	{
+		String sql = "DELETE FROM komentar WHERE idKomentar=?";
+		try {
+            return jdbcTemplate.update(sql, new Object[]{id});
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return 1;
+	}
+	
+	public int urediKomentar(String vsebina, int id)
+	{
+		String sql="UPDATE komentar SET vsebina=? WHERE idKomentar=?";
+		return jdbcTemplate.update(sql, new Object[]{vsebina, id});
+	}
+
+	
+	public List<Komentar> vsiKomentarji(){
+		String sql = "SELECT * FROM komentar";
+		List<Komentar> ret = new ArrayList<>();
+		List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+		for (Map row: rows){
+			String vsebina = (String)row.get("vsebina");
+			ret.add(new Komentar(vsebina));
+		}
+		return ret;
+	}
+}
+
+
+
+
+
+
+KOMENTAR.JAVA
+package si.feri.eko.baza;
+
+public class Komentar{
+	
+	private int idKomentar;
+	
+	private String vsebina;
+	
+	public Komentar(String vsebina)
+	{
+		this.vsebina = vsebina;
+	}
+
+	public String getVsebina(){
+		return vsebina;
+	}
+	
+	public void setVsebina(String vsebina){
+		this.vsebina = vsebina;
+	}
+	
+	@Override
+    public String toString() {
+        return "Komentar{" +
+                "id=" + idKomentar +
+                ", vsebina='" + vsebina + '\'' +
+                '}';
+    }
+}
+
+
+
+
+
+BAZA KONTROLER
+@RequestMapping(value={"/", "/kmetija1"}, method=RequestMethod.POST)
+    public String kmetija11(@RequestParam("rating") int ocena,
+                            @RequestParam(value = "vsebina", required = true) String komentar)
+    {
+        ocenaDao.dodajOceno(ocena);
+        komentarDao.dodajKomentar(komentar);
+        return "redirect:/vnosi";
+
+    }
+    
+  @RequestMapping(value={"/kmetija1"}, method = RequestMethod.GET)
+    public String kmetija1(Model model) {
+        model.addAttribute("Izdelki", izdelekDao.vsiIzdelki());
+        model.addAttribute("Ocena", ocenaDao.vseOcene());
+        model.addAttribute("Komentar", komentarDao.vsiKomentarji());
+
+        int st1 = 0, st2 = 0, st3 = 0, st4 = 0, st5 = 0;
+        double povprecje = 1;
+        int vsiGlasovi = 1;
+        /*List<Ocena> seznam = ocenaDao.vseOcene();
+        System.out.print(seznam);
+        for (int i = 0; i < seznam.size(); i++) {
+            System.out.println(seznam.get(i));
+            if (seznam.get(i).equals('1'))
+            {
+                st1++;
+            }
+            else if (seznam.get(i).equals('2'))
+            {
+                st2++;
+            }
+            else if (seznam.get(i).equals('3'))
+            {
+                st3++;
+            }
+            else if (seznam.get(i).equals('4'))
+            {
+                st4++;
+            }
+            else if (seznam.get(i).equals('5'))
+            {
+                st5++;
+            }
+       }
+
+
+            System.out.print(st2);
+            vsiGlasovi = st1 + st2 + st3 + st4 + st5 +1;
+            System.out.print("keks" + vsiGlasovi + "keks");
+            povprecje = (1*st1 + 2*st2 + 3*st3 + 4*st4 + 5*st5)/(vsiGlasovi);
+            System.out.print(povprecje);*/
+            return "kmetija1";
+
+         }
+         
+        
+        
+        
+        
+        za stran pa je updatano kmetija1, prikaz pa to. 
