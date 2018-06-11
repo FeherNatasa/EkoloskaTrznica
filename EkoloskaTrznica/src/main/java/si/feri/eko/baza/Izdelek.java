@@ -5,7 +5,7 @@ package si.feri.eko.baza;
 public class Izdelek{
 
 
-    private int id;
+    private int idIzdelek;
 
     private String naziv;
     private double masa;
@@ -17,6 +17,13 @@ public class Izdelek{
         this.cena = cena;
     }
 
+    public Izdelek(String naziv, double masa, double cena, int idIzdelek) {
+        this.naziv = naziv;
+        this.masa = masa;
+        this.cena = cena;
+        this.idIzdelek = idIzdelek;
+    }
+    
     public String getNaziv() {
         return naziv;
     }
@@ -39,6 +46,14 @@ public class Izdelek{
 
     public void setMasa(double masa) {
         this.masa = masa;
+    }
+    
+    public int idIzdelek() {
+        return idIzdelek;
+    }
+
+    public void setidIzdelek(int idIzdelek) {
+        this.idIzdelek = idIzdelek;
     }
 
     @Override
