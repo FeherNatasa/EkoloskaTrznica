@@ -101,12 +101,23 @@
 
         <div class=container>
             <h2>EKO kmetija RUS</h2>
+
             <br>
             <div class="row">
                 <div class="col-sm-4 text-center">
                     <img class="img-responsive rounded" src="slike/milan_rus.jpg">
                 </div>
-
+                <form name="oceni" method="post" action="kmetija1">
+                    <ul class="rate-area">
+                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Odlično">5 stars</label>
+                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Dobro" checked>4 stars</label>
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Povprečno">3 stars</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Slabo">2 stars</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Zelo slabo">1 star</label>
+                    </ul>
+                    &nbsp<button type="submit" class="btn" >+</button>
+                </form>
+                <br/> &nbsp Povprečna ocena : ${povprecje}
                 <div class="col-sm-8 text-left">
                     <h3>O nas</h3>
                     <p>
@@ -121,18 +132,6 @@
             <br>
             <div class="row">
                 <div class="col-sm-4 text-left">
-                    <form method="POST" action="/kmetija1">
-                    <ul class="rate-area">
-                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Odlično">5 stars</label>
-                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Dobro">4 stars</label>
-                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Povprečno">3 stars</label>
-                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Slabo">2 stars</label>
-                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Zelo slabo">1 star</label>
-                    </ul>
-                        &nbsp&nbsp <button type="submit" class="btn btn-default">+</button>
-                       <%-- ${Ocena.kmetija_ocena}--%>
-                    </form>
-
                     <br/><br/><br/>
                     <h4>Mota 25, 9240 Ljutomer</h4>
                     <h4>+386 41914247 ali<br/>
@@ -187,7 +186,7 @@
 
                                     <tr>
                                         <td>slika</td><!-- tu je uporabniška slika -->
-                                        <!-- tu more bit za uporabnika -->
+                                        <td>user</td><!-- tu more bit za uporabnika -->
                                         <td>${comment.vsebina}</td>
                                     </tr>
 
@@ -199,9 +198,11 @@
                         <form method="POST" action="/kmetija1">
                             <div class="form-group" id="formaKomentar" >
                                 <textarea class="form-control" rows="2" value="Dodajte komentar ..." name="vsebina"></textarea>
-                                <br/>
-                                <button type="submit" class="btn" >Dodaj komentar</button>
+
+                                <br/><br/>
+
                             </div>
+                            <button type="submit" class="btn" >Dodaj komentar</button>
                         </form>
                     </div>
                 </div>
