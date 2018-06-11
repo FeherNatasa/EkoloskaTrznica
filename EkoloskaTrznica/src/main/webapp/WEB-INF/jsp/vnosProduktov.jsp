@@ -60,7 +60,7 @@
         </div>
         <div class="col-sm-6">
             <div class="main-login main-center">
-                <form name="myform" class="" method="post" action="#" >
+                 <form method="post" action="/dodajanjeProduktov" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="naziv" class="cols-sm-2 control-label">Naziv produkta:</label>
                         <div class="cols-sm-10">
@@ -88,8 +88,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="cols-sm-2 control-label">Naložite fotografijo izdelka:</label>
+                     <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <p class="text-left">Dodajte fotografijo:<input type="file" name="files" accept=".jpg, .jpeg, .png" multiple></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group ">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button gumbDodajProdukt">Dodaj produkt</button>
@@ -103,5 +107,49 @@
     </div>
 </div><br>
 
+	<script>
+    var fileTypes = [
+        'image/jpeg',
+        'image/pjpeg',
+        'image/png'
+    ]
+    var input = document.querySelector('#image_uploads');
+    var preview = document.querySelector('#predogled');
+    input.style.visibility = 'hidden';
+    input.addEventListener('change', posodobiPregledSlik);
+    function  posodobiPregledSlik() {
+        while(preview.firstChild) {
+            preview.removeChild(preview.firstChild);
+        }
+        var curFiles = input.files;
+        if(curFiles.length !== 0) {
+            var list = document.createElement('ol');
+            preview.appendChild(list);
+            for(var i = 0; i < curFiles.length; i++) {
+                if(validFileType(curFiles[i])) {
+                    var listItem = document.createElement('li');
+                    listItem.setAttribute("class","list-group-item");
+                    var para = document.createElement('span');
+                    para.textContent = '' + curFiles[i].name+' ';
+                    var image = document.createElement('img');
+                    list.setAttribute("class","slikaZaFotografije");
+                    image.src = window.URL.createObjectURL(curFiles[i]);
+                    listItem.appendChild(para);
+                    listItem.appendChild(image);
+                    list.appendChild(document.createElement('BR'));
+                }
+                list.appendChild(listItem);
+            }
+        }
+    }
+    function validFileType(file) {
+        for(var i = 0; i < fileTypes.length; i++) {
+            if(file.type === fileTypes[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
 </body>
 </html>
