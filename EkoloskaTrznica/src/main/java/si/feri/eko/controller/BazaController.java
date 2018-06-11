@@ -124,20 +124,39 @@ public class BazaController {
         }
     }
     
-    @RequestMapping(value = { "/", "/dodajanjeProduktov" }, method = RequestMethod.GET)
+   @RequestMapping(value = { "/", "/dodajanjeProduktov" }, method = RequestMethod.GET)
     public String dodajanjeProduktov(Model model) {
         model.addAttribute("message", this.message);
         return "vnosProduktov";
     }
 
     @RequestMapping(value = {"/", "/dodajanjeProduktov"}, method = RequestMethod.POST)
-    public String dodajanjeProduktovv(@RequestParam(value = "Naziv", required = true) String Naziv,
-                                    @RequestParam(value = "Masa", required = true) double Masa,
-                                    @RequestParam(value = "Cena", required = true) double Cena) {
+    public String dodajanjeProduktovv(Model model, @RequestParam(value = "Naziv", required = true) String Naziv,
+                                      @RequestParam(value = "Masa", required = true) double Masa,
+                                      @RequestParam(value = "Cena", required = true) double Cena,
+                                        @ModelAttribute("uploadForm") FileUploadForm uploadForm) {
+
+        izdelekDao.dodajIzdelek(Naziv, Masa, Cena);
+
+        try {
+            List<MultipartFile> files = uploadForm.getFiles();
+            List<String> fileNames = new ArrayList<String>();
+            if (null != files && files.size() > 0) {
+                for (MultipartFile multipartFile : files) {
+                    String fileName;
+                    fileName = multipartFile.getOriginalFilename();
+                    fileNames.add(fileName);
+                    slikaDao.saveI(multipartFile, izdelekDao.getIdIzdelka(Naziv));
+                }
+            }
+            model.addAttribute("files", fileNames);
+            System.out.print("Slika je bila dodana");
+
+        } catch (NullPointerException e) {
+            System.out.println("Slika ni bila dodana");
+            e.printStackTrace();
+        }
         {
-
-            izdelekDao.dodajIzdelek(Naziv, Masa, Cena);
-
             return "redirect:/vnosi";
         }
     }
