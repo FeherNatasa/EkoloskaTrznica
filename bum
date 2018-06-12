@@ -1,0 +1,12 @@
+String naziv;
+
+ArrayList<Izdelek> seznam = izdelekDao.vsiIzdelki()
+for (int i=0; i<seznam.size(); i++)
+{
+	if (seznam.get(i)==naziv)
+		{
+			model.addAttribute("najdeno", izdelekDao.getIzdelek());
+		}
+		
+	return "isci";
+}
