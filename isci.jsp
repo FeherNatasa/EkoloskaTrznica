@@ -98,6 +98,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th>Slika</th>
 						<th>Naziv</th>
 						<th>Cena</th>
 						<th>Masa</th>
