@@ -13,12 +13,12 @@ Mentor: Mitja Gradišnik
 Sistem v pomoč pri trženju ekoloških izdelkov, ki jih pridelujejo ekološke kmetije.
 Vzpostavili smo spletno stran, ki obiskovalcem omogoča pregled ekoloških kmetij ter pregled produktov, ki jih le te ponujajo.
 Funkcionalnosti:
--> pregled kmetij po regijah, pregled njihovih produktov
--> nakup produktov
--> dodajanje novih kmetij ter njihovih izdelkov (z obveznimi podatki)
--> registracija ter prijava uporabnikov, urejanje profila 
--> uporabniki imajo možnost ocenitve ter dodajanja komentarja kmetijam
--> iskanje po produktih
+* pregled kmetij po regijah, pregled njihovih produktov
+* nakup produktov
+* dodajanje novih kmetij ter njihovih izdelkov (z obveznimi podatki)
+* registracija ter prijava uporabnikov, urejanje profila 
+* uporabniki imajo možnost ocenitve ter dodajanja komentarja kmetijam
+* iskanje po produktih
 
 
 ## Navodila za namestitev 
