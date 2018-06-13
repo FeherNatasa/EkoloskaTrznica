@@ -1,4 +1,4 @@
-<p align="center"><img src="eko.png" alt="EkoHiska" title="EkoHiska"/></p>
+<p align="center"><img src="eko.png" alt="EkoHiska" title="EkoHiska" width="500" height="100"/></p>
 
 
 ## Kdo smo 
