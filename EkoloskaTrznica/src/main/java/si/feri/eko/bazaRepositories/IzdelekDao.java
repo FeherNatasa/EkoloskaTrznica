@@ -70,8 +70,31 @@ public class IzdelekDao
             String naziv = (String)row.get("naziv");
             double masa=(double)row.get("masa");
             double cena=(double)row.get("cena");
-            ret.add(new Izdelek(naziv, masa, cena));
-            }
+            int tk_idKmetija=(int)row.get("tk_idKmetija");
+            ret.add(new Izdelek(id, naziv, masa, cena, tk_idKmetija));
+        }
         return ret;
     }
+
+
+ public List<Izdelek> getIzdelek(String naziv){
+     String sql = "SELECT *  FROM Izdelek WHERE Izdelek.naziv LIKE '%"+naziv+"%' ";
+
+
+     List<Izdelek> ret =new ArrayList<Izdelek>();
+     List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+
+     for (Map row : rows) {
+         int id = (int)row.get("idIzdelek");
+         naziv = (String)row.get("naziv");
+         double masa=(double)row.get("masa");
+         double cena=(double)row.get("cena");
+        int tk_idKmetija=(int)row.get("tk_idKmetija");
+         ret.add(new Izdelek(id, naziv, masa, cena, tk_idKmetija));
+     }
+   
+
+     return ret;
+ }
+
 }
