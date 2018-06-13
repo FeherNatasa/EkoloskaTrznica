@@ -198,6 +198,50 @@ public class BazaController {
     }
 
     
+     @RequestMapping(value = { "/", "/isci" }, method = RequestMethod.GET)
+    public String isci(Model model) {
+        model.addAttribute("message", this.message);
+        return "isci";
+    }
+
+
+
+
+    @RequestMapping(value={"/isci"}, method=RequestMethod.POST)
+    public String iscemo(Model model, @RequestParam(value="freeText", required=false)String freeText)
+    {
+      List<Kmetija> kmetije= kmetijaDao.vseKmetije();
+      List<Izdelek> seznam = izdelekDao.vsiIzdelki();
+      
+        for (int i=0; i<seznam.size(); i++)
+        {
+            for(int j=0; j<kmetije.size();j++) {
+
+
+
+                    if (seznam.get(i).getNaziv().equals(freeText)) {
+   int in = seznam.get(i).getTk_idKmetija();
+    int tk = kmetije.get(j).getId();
+if(in==tk){
+    System.out.print(tk);
+    System.out.println(in);
+
+        model.addAttribute("najdeno", izdelekDao.getIzdelek(freeText));
+        model.addAttribute("kmetija", kmetijaDao.getKmetija(tk));
+
+
+}
+             }
+            }
+        }
+
+
+
+        return "isci";
+    }
+
+
+    
       @RequestMapping(value = {"/kmetije"}, method = RequestMethod.GET)
     public String kmetijee(Model model) {
         model.addAttribute("KmetijeP", kmetijaDao.vseKmetije());
