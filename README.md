@@ -5,9 +5,9 @@
 [<img alt="BorsicTeja" src="https://avatars1.githubusercontent.com/u/33715799?s=460&v=4" width="100">](https://github.com/BorsicTeja) |[<img alt="FeherNatasa" src="https://avatars3.githubusercontent.com/u/33715929?s=460&v=4" width="100">](https://github.com/FeherNatasa) |[<img alt="Gornikpina" src="https://avatars2.githubusercontent.com/u/33715956?s=460&v=4" width="100">](https://github.com/Gornikpina) |[<img alt="KitekMaja" src="https://avatars2.githubusercontent.com/u/33865439?s=460&v=4" width="100">](https://github.com/KitekMaja) |
 :---: |:---: |:---: |:---: |
 [BorsicTeja](https://github.com/BorsicTeja) |[FeherNatasa](https://github.com/FeherNatasa) |[Gornikpina](https://github.com/Gornikpina) |[KitekMaja](https://github.com/KitekMaja) |
-Mentor: Mitja Gradišnik
 
 Projekt je bil izveden v sklopu predmeta Praktikum 1, FERI ITK UN.
+Mentor: Mitja Gradišnik
 
 
 ## Naš projekt 
