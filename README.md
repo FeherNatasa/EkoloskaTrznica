@@ -1,4 +1,4 @@
-# EKOLOŠKA TRŽNICA :seedling:
+<p align="center"><img src="eko.png" alt="EkoHiska" title="EkoHiska"/></p>
 
 
 ## Kdo smo 
