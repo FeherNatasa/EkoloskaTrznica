@@ -10,17 +10,16 @@ Projekt je bil izveden v sklopu predmeta Praktikum 1, FERI ITK UN.
 Mentor: Mitja Gradišnik
 
 ## Naš projekt 
-Načrtujte in izdelajte sistem, ki bo v pomoč pri trženju ekoloških izdelkov, ki jih pridelujejo ekološke
-kmetije.
-V okviru sistema vzpostavite spletno stran, ki bo obiskovalcem omogočala pregled ekoloških kmetij ter
-pregled produktov, ki jih le te ponujajo.
-Vsaka izmed ekoloških kmetij naj ima možnost strukturirane predstavitve usmeritve svoje dejavnosti,
-ter načina trženja svojih izdelkov. Pri tem podprite vsaj 2 modela trženja, in sicer prodajo izdelkov na
-ekološki kmetiji ter dostavo produktov na dom. V okviru dostave na dom ponudite tudi prodajo
-paketov, pri katerih se odjemalci naročijo na predpripravljene pakete sezonske zelenjave, ki jim jih
-ekološke kmetije periodično dostavljajo na dom.
-Da bi uporabniki lažje našli ekološke kmetije, ki ponujajo želene produkte, implementirajte tudi
-napredno iskanje. Dodate lahko tudi možnost komentiranja ponudbe posamezne ekološke kmetije.
+Sistem v pomoč pri trženju ekoloških izdelkov, ki jih pridelujejo ekološke kmetije.
+Vzpostavili smo spletno stran, ki obiskovalcem omogoča pregled ekoloških kmetij ter pregled produktov, ki jih le te ponujajo.
+Funkcionalnosti:
+-> pregled kmetij po regijah, pregled njihovih produktov
+-> nakup produktov
+-> dodajanje novih kmetij ter njihovih izdelkov (z obveznimi podatki)
+-> registracija ter prijava uporabnikov, urejanje profila 
+-> uporabniki imajo možnost ocenitve ter dodajanja komentarja kmetijam
+-> iskanje po produktih
+
 
 ## Navodila za namestitev 
 Za namestitev našega projekta boste potrebovali nameščen IntelliJ ter MySQL Workbench, ki je nujno potreben za uspešno delovanje projekta. 
