@@ -34,5 +34,8 @@ Za odprtje projekta:
 5. Med Plugins izberete Spring-boot, ter nato spring-boot:run
 V izbranem brskalniku nato dostopate do spletne aplikacije.
 
+<p align="center"><img src="Nata-a/maven.PNG" alt="EkoHiska" title="EkoHiska"/></p>
+<p align="center"><img src="Nata-a/applicationp.PNG" alt="EkoHiska" title="EkoHiska"/></p>
+
 
 
