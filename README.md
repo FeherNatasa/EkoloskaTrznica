@@ -1,7 +1,5 @@
 # EKOLOŠKA TRŽNICA :seedling:
 
-[<img alt="logo" src="https://imgur.com/LfJsSM2" width="100">]
-
 ## Kdo smo 
 [<img alt="BorsicTeja" src="https://avatars1.githubusercontent.com/u/33715799?s=460&v=4" width="100">](https://github.com/BorsicTeja) |[<img alt="FeherNatasa" src="https://avatars3.githubusercontent.com/u/33715929?s=460&v=4" width="100">](https://github.com/FeherNatasa) |[<img alt="Gornikpina" src="https://avatars2.githubusercontent.com/u/33715956?s=460&v=4" width="100">](https://github.com/Gornikpina) |[<img alt="KitekMaja" src="https://avatars2.githubusercontent.com/u/33865439?s=460&v=4" width="100">](https://github.com/KitekMaja) |
 :---: |:---: |:---: |:---: |
@@ -22,5 +20,4 @@ ekološke kmetije periodično dostavljajo na dom.
 Da bi uporabniki lažje našli ekološke kmetije, ki ponujajo želene produkte, implementirajte tudi
 napredno iskanje. Dodate lahko tudi možnost komentiranja ponudbe posamezne ekološke kmetije.
 
-
-
+## Navodila za namestitev
