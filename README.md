@@ -35,6 +35,12 @@ V izbranem brskalniku nato dostopate do spletne aplikacije.
 <p align="center"><img src="Nata-a/webconfig.PNG" alit="Ekohiska" title="EkoHiska"/></p>
 <p align="center"><img src="Nata-a/maven.PNG" alt="EkoHiska" title="EkoHiska" width="300" height="350"/></p>
 
+## Prototip
+<p align="center"><img src="Nata-a/prototip_frontPage.PNG" alt="EkoHiska" title="EkoHiska"/></p>
+<p align="center"><img src="Nata-a/prototip_kmetija.PNG" alt="EkoHiska" title="EkoHiska"/></p>
+<p align="center"><img src="Nata-a/prototip_iskalnik.PNG" alt="EkoHiska" title="EkoHiska"/></p>
+
+
 ## Kdo smo 
 [<img alt="BorsicTeja" src="https://avatars1.githubusercontent.com/u/33715799?s=460&v=4" width="100">](https://github.com/BorsicTeja) |[<img alt="FeherNatasa" src="https://avatars3.githubusercontent.com/u/33715929?s=460&v=4" width="100">](https://github.com/FeherNatasa) |[<img alt="Gornikpina" src="https://avatars2.githubusercontent.com/u/33715956?s=460&v=4" width="100">](https://github.com/Gornikpina) |[<img alt="KitekMaja" src="https://avatars2.githubusercontent.com/u/33865439?s=460&v=4" width="100">](https://github.com/KitekMaja) |
 :---: |:---: |:---: |:---: |
