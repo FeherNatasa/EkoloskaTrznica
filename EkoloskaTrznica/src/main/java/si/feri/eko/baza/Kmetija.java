@@ -12,6 +12,11 @@ public class Kmetija {
     private String email;
     private String telefonskaStevilka;
     private String prevzem;
+  
+  
+    public Kmetija(String naziv){
+        this.naziv=naziv;
+    }
 
     public Kmetija(String naziv, String opis, String email, String telefonskaStevilka, String prevzem) {
         this.naziv = naziv;
@@ -28,6 +33,13 @@ public class Kmetija {
             this.prevzem = prevzem;
             this.idKmetija = id_kmetija;
         }
+  
+      @Autowired
+    public Kmetija(int idKmetija, String naziv) {
+        this.id=idKmetija;
+        this.naziv = naziv;
+
+    }
 
     public String getNaziv() {
         return naziv;
