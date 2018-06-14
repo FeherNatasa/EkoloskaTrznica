@@ -97,4 +97,10 @@ public class IzdelekDao
      return ret;
  }
 
+     public int getTk_idKmetija(String naziv){
+        String sql="SELECT tk_idKmetija FROM izdelek WHERE Naziv= '"+naziv+"'";
+        int tk_idKmetija=Integer.parseInt((String)jdbcTemplate.queryForObject(sql, String.class));
+        System.out.print(tk_idKmetija);
+        return tk_idKmetija;
+    }
 }
