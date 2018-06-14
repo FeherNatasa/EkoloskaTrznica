@@ -36,8 +36,7 @@ V izbranem brskalniku nato dostopate do spletne aplikacije.
 <p align="center"><img src="Nata-a/maven.PNG" alt="EkoHiska" title="EkoHiska" width="300" height="350"/></p>
 
 ## Prototip
-<p align="right"><img src="Nata-a/prototip_frontPage.PNG" alt="EkoHiska" title="EkoHiska" width="300" height="350"/></p><p align="center"><img src="Nata-a/prototip_kmetija.PNG" alt="EkoHiska" title="EkoHiska" width="300" height="350"/></p>
-<p align="center"><img src="Nata-a/prototip_iskalnik.png" alt="EkoHiska" title="EkoHiska" width="350" height="300"/></p>
+<p align="center"><img src="Nata-a/prototip_iskalnik.png" alt="EkoHiska" title="EkoHiska" width="450" height="300"/></p>
 
 
 ## Kdo smo 
