@@ -31,8 +31,9 @@ Za odprtje projekta:
 2. v IntelliJ odprite file -> Open -> izberite razširjeno mapo na lokaciji kamor ste jo shranili 
 3. omogočiti morate tudi avtomatski izvoz vseh Maven odvisnosti 
 3. v apllicationproperties nastavite vaše ime ter geslo za povezavo z bazo (isto kot imate nastavljeno v MySQL), pomembno je tudi da se ujemajo tudi vrata (port) ter ime baze
-4. za zagon projekta: view -> Tool Windows -> Maven Project -> izberete datoteko pom.xml
-5. Med Plugins izberete Spring-boot, ter nato spring-boot:run
+4. Prav tako nastavite svoje ime ter uporabniško geslo (isto kot v MySql) v datoteki Webconfig, ki jo najdete v mapi Security
+5. za zagon projekta: view -> Tool Windows -> Maven Project -> izberete datoteko pom.xml
+6. Med Plugins izberete Spring-boot, ter nato spring-boot:run
 V izbranem brskalniku nato dostopate do spletne aplikacije.
 
 
