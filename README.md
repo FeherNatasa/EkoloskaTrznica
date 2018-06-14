@@ -40,6 +40,9 @@ V izbranem brskalniku nato dostopate do spletne aplikacije.
 <p align="center"><img src="Nata-a/prototip1.png" alt="EkoHiska" title="EkoHiska"/></p>
 <p align="center"><img src="Nata-a/prototip_iskalnik.png" alt="EkoHiska" title="EkoHiska" width="550" height="300"/></p>
 
+## Podatkovna baza 
+E-R diagram
+<p align="center"><img src="SQL/er_diagram.png" alt="EkoHiska" title="EkoHiska"/></p>
 
 ## Kdo smo 
 [<img alt="BorsicTeja" src="https://avatars1.githubusercontent.com/u/33715799?s=460&v=4" width="100">](https://github.com/BorsicTeja) |[<img alt="FeherNatasa" src="https://avatars3.githubusercontent.com/u/33715929?s=460&v=4" width="100">](https://github.com/FeherNatasa) |[<img alt="Gornikpina" src="https://avatars2.githubusercontent.com/u/33715956?s=460&v=4" width="100">](https://github.com/Gornikpina) |[<img alt="KitekMaja" src="https://avatars2.githubusercontent.com/u/33865439?s=460&v=4" width="100">](https://github.com/KitekMaja) |
