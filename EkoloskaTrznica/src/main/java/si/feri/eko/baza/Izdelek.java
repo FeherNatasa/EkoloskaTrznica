@@ -3,6 +3,7 @@ package si.feri.eko.baza;
 
 
 public class Izdelek{
+@Autowired KmetijaDao kmetijaDao;
 
 
     private int idIzdelek;
@@ -11,6 +12,16 @@ public class Izdelek{
     private double masa;
     private double cena;
 
+    @Autowired
+    public Izdelek(){
+
+    }
+@Autowired
+    public Izdelek(String naziv){
+        this.naziv=naziv;
+    }
+
+    
     public Izdelek(String naziv, double masa, double cena) {
         this.naziv = naziv;
         this.masa = masa;
@@ -22,6 +33,15 @@ public class Izdelek{
         this.masa = masa;
         this.cena = cena;
         this.idIzdelek = idIzdelek;
+    }
+    
+        @Autowired
+    public Izdelek(int id, String naziv, double masa, double cena, int tk_idKmetija) {
+        this.idIzdelek=id;
+        this.naziv = naziv;
+        this.masa = masa;
+        this.cena = cena;
+        this.tk_idKmetija=tk_idKmetija;
     }
     
     public String getNaziv() {
@@ -55,14 +75,24 @@ public class Izdelek{
     public void setidIzdelek(int idIzdelek) {
         this.idIzdelek = idIzdelek;
     }
+    
+    public void setTk_idKmetija(int tk_idKmetija) {
+        this.tk_idKmetija = tk_idKmetija;
+    }
 
-    @Override
+    public int getTk_idKmetija(){
+    return tk_idKmetija;
+    }
+
+  @Override
     public String toString() {
         return "Izdelek{" +
-                "id=" + id +
+                "id=" + idIzdelek +
                 ", naziv='" + naziv + '\'' +
                 ", masa='" + masa + '\'' +
                 ", cena='" + cena + '\'' +
+                ", tk_idKmetija='" + tk_idKmetija + '\'' +
                 '}';
+    
     }
 }
