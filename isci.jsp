@@ -114,25 +114,25 @@
         <table class="table">
             <thead>
             <tr>
-                <!--<th>Slika</th>-->
                 <th>Naziv</th>
                 <th>Cena</th>
                 <th>Masa</th>
-                <th>TK</th>
+                <th>Kmetija</th>
+
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${najdeno}" var ="n">
+                <c:forEach items="${kmetija}" var ="k">
 					<tr>
 
 						<td>${n.naziv}</td>
 						<td>${n.cena}</td>
 						<td>${n.masa}</td>
-                        <td>${n.tk_idKmetija}</td>
-                            <td>${kmetija}</td>
+                        <td>${k.naziv}</td>
 
 					</tr>
-
+            </c:forEach>
             </c:forEach>
 				</body>
 			</table>
@@ -159,4 +159,3 @@
 
 </body>
 </html>
-
