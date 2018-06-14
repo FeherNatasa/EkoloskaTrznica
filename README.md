@@ -39,6 +39,7 @@ V izbranem brskalniku nato dostopate do spletne aplikacije.
 
 <p align="center"><img src="Nata-a/applicationp.PNG" alt="EkoHiska" title="EkoHiska"/></p>
 <p align="center"><img src="Nata-a/maven.PNG" alt="EkoHiska" title="EkoHiska" width="300" height="350"/></p>
+<p align="center"><img src="Nata-a/webconfig.PNG" alit="Ekohiska" title="EkoHiska"/></p>
 
 
 
