@@ -1,3 +1,5 @@
+komentardao
+
 public List<Komentar> vsiKomentarjikmetije(int tk_idKmetije){
         String sql = "SELECT * FROM komentar  WHERE tk_idKmetija= '"+tk_idKmetije+"'";
         List<Komentar> ret = new ArrayList<>();
@@ -26,3 +28,7 @@ public List<Komentar> vsiKomentarjikmetije(int tk_idKmetije){
         }
         return ret;
     }
+
+
+bazakontroler:
+model.addAttribute("komentarKmetije", komentarDao.vsiKomentarjikmetije(id));
