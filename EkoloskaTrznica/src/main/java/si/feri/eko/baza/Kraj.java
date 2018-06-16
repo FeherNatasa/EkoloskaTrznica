@@ -3,23 +3,28 @@ package si.feri.eko.baza;
 
 public class Kraj {
 
-    private int id;
+    private int idKraj;
 
-    private String postnaStevilka;
+    private int postnaStevilka;
     private String obcina;
     private String regija;
 
-    public Kraj(String postnaStevilka, String obcina, String regija) {
+    public Kraj(int idKraj, int postnaStevilka, String obcina, String regija) {
+        this.idKraj=idKraj;
         this.postnaStevilka = postnaStevilka;
         this.obcina = obcina;
         this.regija = regija;
     }
 
-    public String getPostnaStevilka() {
+    public Kraj (int postnaStevilka)
+    {
+        this.postnaStevilka=postnaStevilka;
+    }
+    public int getPostnaStevilka() {
         return postnaStevilka;
     }
 
-    public void setPostnaStevilka(String postnaStevilka) {
+    public void setPostnaStevilka(int postnaStevilka) {
         this.postnaStevilka = postnaStevilka;
     }
 
@@ -42,7 +47,7 @@ public class Kraj {
     @Override
     public String toString() {
         return "Kraj{" +
-                "id=" + id +
+                "id=" + idKraj +
                 ", postnaStevilka='" + postnaStevilka + '\'' +
                 ", obcina='" + obcina + '\'' +
                 ", regija='" + regija + '\'' +

@@ -1,22 +1,23 @@
 package si.feri.eko.baza;
 
+
 public class SlikaI {
     private int id_slikaI;
     private String URLSlike;
     private int tk_idIzdelek;
 
-    public SlikaI (int id_slika, int fk_id_dogodek){
+    public SlikaI (int id_slika, int tk_idIzdelek){
         this.id_slikaI=id_slika;
-        this.tk_idIzdelek=fk_id_dogodek;
+        this.tk_idIzdelek=tk_idIzdelek;
     }
 
     public SlikaI(String URLSlike){
         this.URLSlike = URLSlike;
     }
 
-    public SlikaI(String URLSlike, int fk_id_dogodek){
+    public SlikaI(String URLSlike, int tk_idIzdelek){
         this.URLSlike = URLSlike;
-        this.tk_idIzdelek=fk_id_dogodek;
+        this.tk_idIzdelek=tk_idIzdelek;
     }
 
     public int getId_slika() {
@@ -31,11 +32,11 @@ public class SlikaI {
 
     public void setURLSlike(String URLSlike) { this.URLSlike = URLSlike; }
 
-    public int getFk_id_dogodek() {
+    public int getTk_idIzdelek() {
         return tk_idIzdelek;
     }
 
-    public void setFk_id_dogodek(int fk_id_dogodek) {
-        this.tk_idIzdelek = fk_id_dogodek;
+    public void setTk_idIzdelek(int tk_idIzdelek) {
+        this.tk_idIzdelek = tk_idIzdelek;
     }
 }

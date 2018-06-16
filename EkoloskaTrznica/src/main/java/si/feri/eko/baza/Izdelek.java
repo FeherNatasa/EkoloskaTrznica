@@ -1,49 +1,64 @@
 package si.feri.eko.baza;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Izdelek{
-@Autowired KmetijaDao kmetijaDao;
 
 
-    private int idIzdelek;
+    private int idIzdelka;
 
     private String naziv;
     private double masa;
     private double cena;
+    private int kolicina;
+
+
+    private int tk_idKmetija;
+
+
+    public Izdelek(int idIzdelka, String naziv, double masa, double cena, int kolicina, int tk_idKmetija) {
+        this.idIzdelka=idIzdelka;
+        this.naziv = naziv;
+        this.masa = masa;
+        this.cena = cena;
+        this.kolicina = kolicina;
+        this.tk_idKmetija = tk_idKmetija;
+    }
 
     @Autowired
     public Izdelek(){
 
     }
-@Autowired
+    @Autowired
     public Izdelek(String naziv){
         this.naziv=naziv;
     }
 
-    
+
     public Izdelek(String naziv, double masa, double cena) {
         this.naziv = naziv;
         this.masa = masa;
         this.cena = cena;
     }
 
-    public Izdelek(String naziv, double masa, double cena, int idIzdelek) {
+    public Izdelek(String naziv, double masa, double cena, int id) {
         this.naziv = naziv;
         this.masa = masa;
         this.cena = cena;
-        this.idIzdelek = idIzdelek;
+        this.idIzdelka = idIzdelka;
     }
-    
-        @Autowired
-    public Izdelek(int id, String naziv, double masa, double cena, int tk_idKmetija) {
-        this.idIzdelek=id;
+
+    @Autowired
+    public Izdelek(int idIzdelka, String naziv, double masa, double cena, int tk_idKmetija) {
+        this.idIzdelka=idIzdelka;
         this.naziv = naziv;
         this.masa = masa;
         this.cena = cena;
         this.tk_idKmetija=tk_idKmetija;
     }
-    
+
+
     public String getNaziv() {
         return naziv;
     }
@@ -67,32 +82,34 @@ public class Izdelek{
     public void setMasa(double masa) {
         this.masa = masa;
     }
-    
-    public int idIzdelek() {
-        return idIzdelek;
+
+    public int getTk_idKmetija() {
+        return tk_idKmetija;
     }
 
-    public void setidIzdelek(int idIzdelek) {
-        this.idIzdelek = idIzdelek;
-    }
-    
     public void setTk_idKmetija(int tk_idKmetija) {
         this.tk_idKmetija = tk_idKmetija;
     }
 
-    public int getTk_idKmetija(){
-    return tk_idKmetija;
+    public int getIdIzdelka() {
+        return idIzdelka;
     }
 
-  @Override
+    public int getKolicina() {
+        return kolicina;
+    }
+
+    public void setKolicina(int kolicina) {
+        this.kolicina = kolicina;
+    }
+
+    @Override
     public String toString() {
         return "Izdelek{" +
-                "id=" + idIzdelek +
+                "id=" + idIzdelka +
                 ", naziv='" + naziv + '\'' +
                 ", masa='" + masa + '\'' +
                 ", cena='" + cena + '\'' +
-                ", tk_idKmetija='" + tk_idKmetija + '\'' +
                 '}';
-    
     }
 }

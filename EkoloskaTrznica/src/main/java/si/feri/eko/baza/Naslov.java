@@ -9,9 +9,20 @@ public class Naslov {
     private String imeUlice;
     private String hisnaStevilka;
 
-    public Naslov(String imeUlice, String hisnaStevilka) {
+    private int tk_idKraj;
+
+    public Naslov(String imeUlice, String hisnaStevilka, int tk_idKraj) {
         this.imeUlice = imeUlice;
         this.hisnaStevilka = hisnaStevilka;
+        this.tk_idKraj = tk_idKraj;
+    }
+
+    public int getTk_idKraj() {
+        return tk_idKraj;
+    }
+
+    public void setTk_idKraj(int tk_idKraj) {
+        this.tk_idKraj = tk_idKraj;
     }
 
     public String getImeUlice() {

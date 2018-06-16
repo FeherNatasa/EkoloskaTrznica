@@ -20,217 +20,230 @@
 </head>
 
 <body>
+
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-        <a href="profil">Moj profil</a>&nbsp&nbsp
-        <a href="vpis">Vpis</a>&nbsp&nbsp
-		<a href="registracija">Registracija</a>
+         <c:choose>
+             <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                 <a class="tekst" href="/profil">Profil</a>&nbsp&nbsp
+             </c:when>
+             <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==false}">
+                 <a class="tekst"href="/registracija">Registracija</a>
+             </c:when>
+             <c:otherwise>
+             </c:otherwise>
+         </c:choose>
+        <c:choose>
+            <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                <a class="tekst" href='<c:url value="/logout" />'>Logout</a>
+            </c:when>
+            <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==false}">
+                <a class="tekst" href="/vpis">Vpis</a>&nbsp&nbsp
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png">
+                <img  type="image/png" class="logo img-fluid" src="../images/eko2.png">
             </div>
             <div class="col-sm-3">
             </div>
         </div>
         <br/><br/>
-        <nav class="navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav" role="tablist">
-                    <li><a href="domov">Domov</a></li>
-                    <li><a href="onas">O nas</a></li>
-                    <li><a href="kmetije">Kmetije</a></li>
-                    <li><a href="dodajanjeProduktov">Produkti</a></li>
-                    <li><a href="kontakt">Kontakt</a></li>
-                    <li><a href="kosarica">Košarica</a></li>
+        <nav class="navbar navbar-default navbar-justified">
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="nav navbar-nav " role="tablist">
+                    <li><a class="tekst" href="/domov">Domov</a></li>
+                    <li><a class="tekst" href="/onas">O nas</a></li>
+                    <li><a class="tekst" href="/kmetije">Ponudniki</a></li>
+                    <li class="dropdown dropdown-large">
+                        <a href="/kmetije" class="dropdown-toggle tekst" data-toggle="dropdown">Kmetije<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu dropdown-menu-large  row">
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">POMURSKA REGIJA</li>
+                                    <c:forEach items="${pomurska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">KOROŠKA REGIJA</li>
+                                    <c:forEach items="${koroska}" var="o">
+                                        <li><a  href="kmetija/${o.idKmetija}"><p>${o.naziv}</p></a></li>
+                                    </c:forEach>
+
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">GORENJSKA REGIJA</li>
+                                    <c:forEach items="${gorenjska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">PODRAVSKA REGIJA</li>
+                                    <c:forEach items="${podravska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">DOLENJSKA REGIJA</li>
+                                    <c:forEach items="${dolenjska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">OSREDNJESLOVENSKA <br/>REGIJA</li>
+                                    <c:forEach items="${osrednjeslovenska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><a class="tekst" href="/kontakt">Kontakt</a></li>
+                    <c:choose>
+                        <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                            <li><a class="tekst" href="/kosarica">Košarica</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
                 </ul>
-            </div>
+                <div class="col-sm-3 col-md-3 pull-right">
+                    <form action="/isci" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Iskanje" name="freeText">
+                            <div class="input-group-btn">
+                                <button id="search-field-btn" class="btn btn-default">Išči
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- /.nav-collapse -->
         </nav>
-        <hr>
     </div>
 </nav>
 
-<div class ="body"> <!-- body -->
 
-    <div class=container>
-        <h2>Pomurska regija</h2>
-        <br>
-        <div class="row">
+        <div class ="body"> <!-- body -->
 
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src="https://www.regiovitalis.si/img/w800-c4x3/upload/gallery/70/turisticna-kmetija-ferencovi.jpg">
-                <h5>ime</h5>
-            </div>
+            <div class=container>
 
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://maribor-pohorje.si/images/temp/big/Izletniska_kmetija_Vida_Zunko_Slovenia_Slovenija_Maribor_Pohorje_Vladimir_Tos_2.jpg>
-                <h5>ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=http://www.nad1000m.si/wp-content/uploads/slika02.jpg>
-                <h5>ime</h5>
-            </div>
-        </div>
-
-        <br>
-        <h2>Podravska regija</h2>
-        <br>
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src="https://www.regiovitalis.si/img/w800-c4x3/upload/gallery/21/ekoloskakmetijatrstenjak.jpg">
-                <h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src="http://www.slotrips.si/sis-mapa/skupina_doc/slo/galerija/1351775743_8354_turisticna_kmetija_makek_jezersko_4.jpg">
-                <h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://s3.eu-central-1.amazonaws.com/viaimages/17684/tourist-farm-kmetija-vaznik_3-xlarge.jpg>
-                <h5>Ime</h5>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <h2>Koroška regija</h2>
-            <br>
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://assets.atdw-online.com.au/images/Original__10007985_2570_Town_Farm_078111_yist6rp.jpg?rect=255,0,3965,2974&w=800&h=600>
-                <br><h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://www.zkst-zalec.si/upload/DirectoryEntry/747/images/116_1614.JPG?preset=ContentImages>
-                <br><h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://www.eko-kmetija-pipus-zunk.si/media/rokgallery/8/8eb55f53-028e-4060-d3b6-4583ca1cb76d/8269453b-12cd-41bc-9931-eacdfd144427.jpg>
-                <br><h5>Ime</h5>
-            </div>
-        </div>
-
-        <h2>Dolenjska regija</h2>
-        <br>
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src="http://www.apiturizem.si/wp-content/uploads/2014/10/6.jpg">
-                <h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=http://www.palomahotels.com/PalomaHotels.AdminWeb/Public/Images/Experiences/concept-organic-farm.jpg>
-                <h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=http://www.turisticna-zveza.si/Ocenjevanje/71/image018.jpg>
-                <h5>Ime</h5>
-            </div>
-        </div>
-
-        <br>
-        <h2>Gorenjska regija</h2>
-        <br>
-        <div class="row">
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src="http://najdikmetijo.si/pic_kmt/96_0.jpg">
-                <h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src="http://www.kmetijakroselj.si/images/kmetija/slika5.jpg">
-                <h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXOTnnHZIJIX6IbRtndeKSIHaQO_m0xBAWczPbh7GOhdwdCu6P>
-                <h5>Ime</h5>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <h2>Osrednjeslovenska regija</h2>
-            <br>
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=https://www.dnevnik.si/i/orig/2017/05/04/1012849.jpg>
-                <br><h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=http://www.turisticnekmetije.si/images/upload/2017/3680_ošven2.jpg>
-                <br><h5>Ime</h5>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <img class="slikaProdukt img-responsive rounded" src=http://www.turisticnekmetije.si/images/upload/2017/3670_slika_10.jpg>
-                <br><h5>Ime</h5>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <h2>Podravska regija</h2>
-        <div class="row">
-
-            <c:forEach items="${KmetijeP}" var="k">
-
-                <div class="col-sm-4 text-center">
-
-                    <h5>${k.naziv}</h5>
-
-
+                <div class="container">
+                    <h2 class="text-center">Podravska regija</h2>
+                    <div class="row">
+                        <c:forEach items="${podravska}" var="k">
+                            <div class="col-sm-4 text-center">
+                                <c:forEach  items="${sli}" var ="slika">
+                                    <!-- Full-width images with number and caption text -->
+                                    <div class="mySlides">
+                                        <img src="data:image/jpeg;base64,${slika.URLSlike}" style=" width: 100%" />
+                                    </div>
+                                </c:forEach>
+                                <a href="kmetija/${k.idKmetija}"> <h5>${k.naziv}</h5></a>
+                                <p>${k.opis}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
                 </div>
 
-            </c:forEach>
+                <div class="container">
+                    <h2 class="text-center">Pomurska regija</h2>
+                    <div class="row">
+                        <c:forEach items="${pomurska}" var="k">
+                            <div class="col-sm-4 text-center">
+                                <a href="kmetija/${k.idKmetija}"> <h5>${k.naziv}</h5></a>
+                                <p>${k.opis}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <h2 class="text-center">Gorenjska regija</h2>
+                    <div class="row">
+                        <c:forEach items="${gorenjska}" var="k">
+                            <div class="col-sm-4 text-center">
+                                <a href="kmetija/${k.idKmetija}"> <h5>${k.naziv}</h5></a>
+                                <p>${k.opis}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <h2 class="text-center">Dolenjska regija</h2>
+                    <div class="row">
+                        <c:forEach items="${dolenjska}" var="k">
+                            <div class="col-sm-4 text-center">
+                                <a href="kmetija/${k.idKmetija}"> <h5>${k.naziv}</h5></a>
+                                <p>${k.opis}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <h2 class="text-center">Koroška regija</h2>
+                    <div class="row">
+                        <c:forEach items="${koroska}" var="k">
+                            <div class="col-sm-4 text-center">
+                              <a href="kmetija/${k.idKmetija}"> <h5>${k.naziv}</h5></a>
+                                <p>${k.opis}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <h2 class="text-center">Osrednjeslovenska regija</h2>
+                    <div class="row">
+                        <c:forEach items="${osrednjeslovenska}" var="k">
+                            <div class="col-sm-4 text-center">
+                                <a href="kmetija/${k.idKmetija}"> <h5>${k.naziv}</h5></a>
+                                <p>${k.opis}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+
 
         </div>
-
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<footer class="container-fluid text-center footer">
-    <div class="row">
-        <div class="col-sm-3">
         </div>
-        <div class="col-sm-3">
-            <p class="font"><b> Kontakt </b><p>
-            <hr class="crta">
-            1-800-000-0000
-        </div>
-        <div class="col-sm-3">
-            <p class="font"><b> Informacije </b><p>
-            <hr class="crta">
-            info@mysite.com
-        </div>
-        <div class="col-sm-3">
-        </div>
-    </div>
 
-
-
-</footer>
+        <footer class="container-fluid text-center footer">
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3">
+                    <p class="font"><b> Kontakt </b><p>
+                    <hr class="crta">
+                    1-800-000-0000
+                </div>
+                <div class="col-sm-3">
+                    <p class="font"><b> Informacije </b><p>
+                    <hr class="crta">
+                    info@mysite.com
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+        </footer>
 
 </body>
 </html>

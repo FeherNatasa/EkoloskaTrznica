@@ -13,31 +13,36 @@ import java.util.Map;
 public class KmetijaDao
 {
 
-       @Autowired
-    JdbcTemplate jdbcTemplate;
-
     @Autowired
-    KmetijaDao kmetijaDao;
+    JdbcTemplate jdbcTemplate;
 
     @Autowired
     KrajDao krajDao;
 
 
-    public int dodajKmetijo(String naziv, String email, String telefonskaStevilka, String prevzem, String opis)
-    {
-        String sql = "insert into EKOHISKA.kmetija (naziv, email, telefonskaStevilka, prevzem, opis) values(?,?,?,?,?)";
-        return jdbcTemplate.update(sql, new Object[]{naziv, email, telefonskaStevilka, prevzem, opis});
+    public int dodajKmetijo(String naziv, String email, String telefonskaStevilka, String prevzem, String opis, int tk_idKraj, int tk_idUporabnik) {
+        String sql = "insert into EKOHISKA.kmetija (naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik) values(?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql, new Object[]{naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik});
+
+
     }
 
-    public boolean obstaja(String naziv){
-        String sql ="SELECT * FROM kmetija WHERE Naziv=?";
-        List<Map<String,Object>> rows =  jdbcTemplate.queryForList(sql, new Object[]{naziv});
-        if(rows.isEmpty())
-        {
-            return false;
+
+    public boolean obstaja(int id){
+        String sql = "SELECT idKmetija FROM kmetija WHERE tk_idUporabnik = '"+id+"'";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            if (row.get("idKmetija") == null) {
+                return false;
+            } else
+            {
+                return true;
+            }
         }
         return true;
     }
+
 
     public int getId(String naziv){
         String sql="SELECT idKmetija FROM kmetija WHERE Naziv= '"+naziv+"'";
@@ -62,59 +67,200 @@ public class KmetijaDao
         }
         return 1;
     }
-    
-    public Integer getIdKmetije(String nazi){
-        int idKmetija = 0;
-        if (nazi == null){
-            return null;
-        } else {
-            String sql = "SELECT idKmetija, naziv FROM kmetija WHERE naziv= ?";
-            List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql, new Object[] {nazi});
-            for (Map row:rows){
-                String naziv = (String) row.get("naziv");
-                idKmetija = (int) row.get("idKmetija");
-            }
-            return idKmetija;
-        }
-    }
 
-    public List<Kmetija> vseKmetije(){
+    public List<Kmetija> vseKmetije() {
         String sql = "SELECT * FROM Kmetija";
         List<Kmetija> ret = new ArrayList<Kmetija>();
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            int idKmetija = (int) row.get("idKmetija");
+            String naziv = (String) row.get("naziv");
+            String email = (String) row.get("email");
+            String telefonskaStevilka = (String) row.get("telefonskaStevilka");
+            String prevzem = (String) row.get("prevzem");
+            String opis = (String) row.get("opis");
+            int tk_idKraj = (int) row.get("tk_idKraj");
+            int tk_idUporabnik = (int) row.get("tk_idUporabnik");
+
+            ret.add(new Kmetija(idKmetija,naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik));
+        }
+        return ret;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public List<Kmetija> kmetijaRegija(String regija){
+
+        //preverim kje je ta regija
+        ArrayList<Integer> idKraj = krajDao.getIdRegija(regija);
+
+
+        List<Kmetija> ret = new ArrayList<Kmetija>();
+        for(Integer k : idKraj)
+        {
+            String sql = "SELECT * FROM Kmetija WHERE tk_idKraj= '"+k+"'";
+            List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+            for (Map row : rows) {
+                int idKmetija = (int) row.get("idKmetija");
+                String naziv = (String)row.get("naziv");
+                String email = (String)row.get("email");
+                String telefonskaStevilka = (String)row.get("telefonskaStevilka");
+                String prevzem = (String)row.get("prevzem");
+                String opis = (String)row.get("opis");
+                int tk_idKraj = (int)row.get("tk_idKraj");
+                int tk_idUporabnik = (int)row.get("tk_idUporabnik");
+                ret.add(new Kmetija(idKmetija, naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik));
+
+            }
+
+        }
+        return ret;
+    }
+
+
+    public String vrniNazivKmetije(int id){
+        String sql = "SELECT naziv FROM kmetija WHERE idKmetija = '"+id+"'";
+        String naziv = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return naziv;
+    }
+
+    public String vrniOpisKmetije(int id){
+        String sql = "SELECT opis FROM kmetija WHERE idKmetija = '"+id+"'";
+        String opis = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return opis;
+    }
+
+    public String vrniNaslovKmetije(int id){
+        String sql = "SELECT naslov FROM kmetija WHERE idKmetija = '"+id+"'";
+        String naslov = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return naslov;
+    }
+
+    public String vrniTelKmetije(int id){
+        String sql = "SELECT telefonskaStevilka FROM kmetija WHERE idKmetija = '"+id+"'";
+        String tel = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return tel;
+    }
+
+    public String vrniPrevzemKmetije(int id){
+        String sql = "SELECT prevzem FROM kmetija WHERE idKmetija = '"+id+"'";
+        String prevzem = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return prevzem;
+    }
+
+    public int vrniTk_idUporabnik(int id){
+        String sql = "SELECT tk_idUporabnik FROM kmetija WHERE id = '"+id+"'";
+        int tkid = (int)jdbcTemplate.queryForObject(sql, int.class);
+
+        return tkid;
+    }
+
+
+
+
+    //katera je njegova kmetija??
+    public Kmetija vrniKmetijo(int idUporabnik){
+        String sql = "SELECT * FROM Kmetija WHERE tk_idUporabnik = '"+ idUporabnik +"'";
+
+
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            int idKmetija = (int) row.get("idKmetija");
+            String naziv = (String)row.get("naziv");
+            String email = (String)row.get("email");
+            String telefonskaStevilka = (String)row.get("telefonskaStevilka");
+            String prevzem = (String)row.get("prevzem");
+            String opis = (String)row.get("opis");
+            int tk_idKraj = (int)row.get("tk_idKraj");
+            int tk_idUporabnik = (int)row.get("tk_idUporabnik");
+            return new Kmetija(idKmetija, naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik);
+
+        }
+
+        return null;
+    }
+
+
+
+    public List<Kmetija> getKmetija(int id){
+        String sql = "SELECT * FROM Kmetija WHERE idKmetija='"+id+"'";
+
+        List<Kmetija> ret =new ArrayList<Kmetija>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            int idKmetija = (int) row.get("idKmetija");
+            String naziv = (String)row.get("naziv");
+            String email = (String)row.get("email");
+            String telefonskaStevilka = (String)row.get("telefonskaStevilka");
+            String prevzem = (String)row.get("prevzem");
+            String opis = (String)row.get("opis");
+            int tk_idKraj = (int)row.get("tk_idKraj");
+            int tk_idUporabnik = (int)row.get("tk_idUporabnik");
+            ret.add(new Kmetija(idKmetija, naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik));
+
+        }
+
+        return ret;
+    }
+
+    public String getNaziv(int id){
+              String sql= "SELECT naziv  FROM Kmetija WHERE idKmetija='"+id+"'";
+                String naziv= (String) jdbcTemplate.queryForObject(sql, String.class);
+               return naziv;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public List<Kmetija> vseVKmetiji(int idKmetija) {
+        String sql = "SELECT * FROM kmetija WHERE tk_idUporabnik = '"+idKmetija+"'";
+        List<Kmetija> ret = new ArrayList<Kmetija>();
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
             String naziv = (String)row.get("naziv");
             String email = (String)row.get("email");
             String telefonskaStevilka = (String)row.get("telefonskaStevilka");
             String prevzem = (String)row.get("prevzem");
             String opis = (String)row.get("opis");
-            ret.add(new Kmetija(naziv, email, telefonskaStevilka, prevzem, opis));
+            int tk_idKraj = (int)row.get("tk_idKraj");
+            int tk_idUporabnik = (int)row.get("tk_idUporabnik");
+            ret.add(new Kmetija(idKmetija, naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik));
         }
         return ret;
     }
-    
-       public List<Kmetija> getKmetija(int id){
-        String sql = "SELECT *  FROM Kmetija WHERE idKmetija='"+id+"'";
 
-
-        List<Kmetija> ret =new ArrayList<Kmetija>();
-        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
-       for (Map row : rows) {
-       String naziv = (String)row.get("naziv");
-       String email = (String)row.get("email");
-       String telefonskaStevilka = (String)row.get("telefonskaStevilka");
-       String prevzem = (String)row.get("prevzem");
-       String opis = (String)row.get("opis");
-       ret.add(new Kmetija(id,naziv,email,telefonskaStevilka, prevzem,opis));
-   }
-        return ret;
+    public int updateKmetija (int idKmetija, String naziv, String email, String telefonskaStevilka, String prevzem, String opis, int tk_idKraj, int tk_idUporabnik){
+        String sql="UPDATE kmetija SET naziv = ?, email = ?, telefonskaStevilka = ?, prevzem = ?, opis = ?, tk_idKraj = ?, tk_idUporabnik=? WHERE idKmetija = '"+idKmetija+"'";
+        return jdbcTemplate.update(sql, new Object[]{naziv, email, telefonskaStevilka, prevzem, opis, tk_idKraj, tk_idUporabnik});
+    }
 
 
 
-}
-public String getNaziv(int id){
-        String sql= "SELECT naziv  FROM Kmetija WHERE idKmetija='"+id+"'";
-        String naziv= (String) jdbcTemplate.queryForObject(sql, String.class);
-        return naziv;
-}
 }

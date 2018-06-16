@@ -4,7 +4,7 @@
 
 <html lang="sl">
 <head>
-    <title>Kmetije</title>
+    <title>Produkti</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,47 +20,130 @@
 </head>
 
 <body>
+
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-        <a href="profil">Moj profil</a>&nbsp&nbsp
-        <a href="vpis">Vpis</a>&nbsp&nbsp
-		<a href="registracija">Registracija</a>
+         <c:choose>
+             <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                 <a class="tekst" href="/profil">Profil</a>&nbsp&nbsp
+             </c:when>
+             <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==false}">
+                 <a class="tekst"href="/registracija">Registracija</a>
+             </c:when>
+             <c:otherwise>
+             </c:otherwise>
+         </c:choose>
+        <c:choose>
+            <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                <a class="tekst" href='<c:url value="/logout" />'>Logout</a>
+            </c:when>
+            <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==false}">
+                <a class="tekst" href="/vpis">Vpis</a>&nbsp&nbsp
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png">
+                <img  type="image/png" class="logo img-fluid" src="../images/eko2.png">
             </div>
             <div class="col-sm-3">
             </div>
         </div>
         <br/><br/>
-        <nav class="navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav" role="tablist">
-                    <li><a href="domov">Domov</a></li>
-                    <li><a href="onas">O nas</a></li>
-                    <li><a href="kmetije">Kmetije</a></li>
-                    <li><a href="dodajanjeProduktov">Produkti</a></li>
-                    <li><a href="kontakt">Kontakt</a></li>
-                    <li><a href="kosarica">Košarica</a></li>
+        <nav class="navbar navbar-default navbar-justified">
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="nav navbar-nav " role="tablist">
+                    <li><a class="tekst" href="/domov">Domov</a></li>
+                    <li><a class="tekst" href="/onas">O nas</a></li>
+                    <li><a class="tekst" href="/kmetije">Ponudniki</a></li>
+                    <li class="dropdown dropdown-large">
+                        <a href="/kmetije" class="dropdown-toggle tekst" data-toggle="dropdown">Kmetije<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu dropdown-menu-large  row">
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">POMURSKA REGIJA</li>
+                                    <c:forEach items="${pomurska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">KOROŠKA REGIJA</li>
+                                    <c:forEach items="${koroska}" var="o">
+                                        <li><a  href="kmetija/${o.idKmetija}"><p>${o.naziv}</p></a></li>
+                                    </c:forEach>
+
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">GORENJSKA REGIJA</li>
+                                    <c:forEach items="${gorenjska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">PODRAVSKA REGIJA</li>
+                                    <c:forEach items="${podravska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">DOLENJSKA REGIJA</li>
+                                    <c:forEach items="${dolenjska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">OSREDNJESLOVENSKA <br/>REGIJA</li>
+                                    <c:forEach items="${osrednjeslovenska}" var="k">
+                                        <li><a  href="kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><a class="tekst" href="/kontakt">Kontakt</a></li>
+                    <c:choose>
+                        <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                            <li><a class="tekst" href="/kosarica">Košarica</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
                 </ul>
-            </div>
+                <div class="col-sm-3 col-md-3 pull-right">
+                    <form action="/isci" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Iskanje" name="freeText">
+                            <div class="input-group-btn">
+                                <button id="search-field-btn" class="btn btn-default">Išči
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- /.nav-collapse -->
         </nav>
-        <hr>
     </div>
 </nav>
 
-<div class="container">
+
+        <div class="container">
 </br>
     <div class="row main">
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6">
             <div class="main-login main-center">
-                 <form method="post" action="/dodajanjeProduktov" enctype="multipart/form-data">
+                <form name="myform" class="" method="post" action="#" >
                     <div class="form-group">
                         <label for="naziv" class="cols-sm-2 control-label">Naziv produkta:</label>
                         <div class="cols-sm-10">
@@ -88,13 +171,14 @@
                             </div>
                         </div>
                     </div>
-                     <div class="form-group">
+                    <!--<div class="form-group">
+                        <label for="file" class="cols-sm-2 control-label">Dodajte fotografijo:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <p class="text-left">Dodajte fotografijo:<input type="file" name="files" accept=".jpg, .jpeg, .png" multiple></p>
+                                <p class="text-left"><input type="file" name="files" accept=".jpg, .jpeg, .png" multiple></p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group ">
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button gumbDodajProdukt">Dodaj produkt</button>
                     </div>
@@ -107,7 +191,8 @@
     </div>
 </div><br>
 
-	<script>
+</body>
+<script>
     var fileTypes = [
         'image/jpeg',
         'image/pjpeg',
@@ -151,5 +236,4 @@
         return false;
     }
 </script>
-</body>
 </html>

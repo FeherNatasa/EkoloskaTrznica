@@ -11,6 +11,7 @@ public class Uporabnik {
     private String uporabniskoIme;
     private String geslo;
 
+
     public Uporabnik(String ime, String priimek, String email, String uporabniskoIme, String geslo) {
         this.ime = ime;
         this.priimek = priimek;
@@ -18,6 +19,7 @@ public class Uporabnik {
         this.uporabniskoIme = uporabniskoIme;
         this.geslo = geslo;
     }
+
 
     public String getIme() {
         return ime;

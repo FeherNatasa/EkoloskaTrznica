@@ -2,6 +2,9 @@ package si.feri.eko.bazaRepositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -19,6 +22,55 @@ public class UporabnikDao
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+
+    NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    @Autowired
+    public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    }
+
+    private SqlParameterSource getSqlParameterSource(String Ime, String Priimek, String Email, String UporabniskoIme, String Geslo){
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        if(Ime != null){
+            parameterSource.addValue("Ime", Ime);
+        }
+        if(Priimek != null){
+            parameterSource.addValue("Priimek", Priimek);
+        }
+        if(Email != null){
+            parameterSource.addValue("Email", Email);
+        }
+        if(UporabniskoIme != null){
+            parameterSource.addValue("UporabniskoIme", UporabniskoIme);
+        }
+        if(Geslo != null){
+            parameterSource.addValue("Geslo", Geslo);
+        }
+
+        return parameterSource;
+    }
+
+    public void dodajKmeta(String Ime, String Priimek, String Email, String UporabniskoIme, String Geslo) {
+
+        String sql = "insert into user_roles(UporabniskoIme, role) values(:UporabniskoIme, 'ROLE_KMET')";
+        namedParameterJdbcTemplate.update(sql, getSqlParameterSource(Ime, Priimek, Email, UporabniskoIme, Geslo));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public int dodajUporabnika(String Ime, String Priimek, String Email, String UporabniskoIme, String Geslo)
@@ -68,6 +120,7 @@ public class UporabnikDao
         List<Uporabnik> ret = new ArrayList<Uporabnik>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
+            int idUporabnik = (int) row.get("idUporabnik");
             String Ime = (String)row.get("Ime");
             String Priimek = (String) row.get("Priimek");
             String Email = (String)row.get("Email");
@@ -113,4 +166,89 @@ public class UporabnikDao
         }
         return 1;
     }
+
+    public String vrniIme(int id){
+        String sql = "SELECT ime FROM uporabnik WHERE idUporabnik = '"+id+"'";
+        String ime = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return ime;
+    }
+
+    public String vrniPriimek(int id){
+        String sql = "SELECT priimek FROM uporabnik WHERE idUporabnik = '"+id+"'";
+        String priimek = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return priimek;
+    }
+
+    public String vrniEmail(int id){
+        String sql = "SELECT email FROM uporabnik WHERE idUporabnik = '"+id+"'";
+        String email = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return email;
+    }
+
+   /* public int vrniTk_idKosarice(int id) {
+        String sql = "SELECT  tk_idKosarica FROM uporabnik WHERE idUporabnik = '" + id + "'";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            int tk_idKosarica = 0;
+            if (row.get("tk_idKosarica") == null) {
+                tk_idKosarica = 0;
+            } else {
+                tk_idKosarica = (int) row.get("tk_idKosarica");
+            }
+
+            return tk_idKosarica;
+        }
+        return 0;
+
+    }*/
+
+
+
+
+        /*System.out.println(sql);
+        int tk_idKosarice = 0;
+        if((int)jdbcTemplate.queryForObject(sql, int.class) == 0)
+        {
+            tk_idKosarice = 0;
+        }
+        else {
+          tk_idKosarice = (int)jdbcTemplate.queryForObject(sql, int.class);
+        }
+
+        return  tk_idKosarice;
+    }
+
+*/
+
+    public Uporabnik vrniUporabnika(int idUporabnik){
+        String sql = "SELECT * FROM uporabnik WHERE idUporabnik = '"+ idUporabnik +"'";
+
+
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            String Ime = (String)row.get("Ime");
+            String Priimek = (String) row.get("Priimek");
+            String Email = (String)row.get("Email");
+            String UporabniskoIme = (String)row.get("UporabniskoIme");
+            String Geslo = (String) row.get("Geslo");
+
+
+            return new Uporabnik(Ime, Priimek, Email, UporabniskoIme, Geslo);
+        }
+        return null;
+    }
+
+
+
+    //posodobi tabelo uporabnika
+
+    public int updateUporabnika(int idUporabnika, String Ime, String Priimek, String Email, String UporabniskoIme, String Geslo, int tk_idKosarica){
+        String sql="UPDATE uporabnik SET ime = ?, priimek = ?, email = ?, uporabniskoIme = ?, geslo = ?, tk_idKosarica= '"+ tk_idKosarica +"' WHERE idUporabnik = '"+ idUporabnika +"'";
+        return  jdbcTemplate.update(sql, new Object[]{Ime, Priimek, Email, UporabniskoIme, Geslo});
+    }
+
 }

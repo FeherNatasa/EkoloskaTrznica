@@ -1,19 +1,34 @@
 package si.feri.eko.baza;
 
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Kmetija {
 
-  private int idKmetija;
+    private int idKmetija;
 
     private String naziv;
     private String opis;
     private String email;
     private String telefonskaStevilka;
     private String prevzem;
-  
-  
+
+    private int tk_idKraj;
+    private int tk_idUporabnik;
+
+    public Kmetija(int idKmetija, String naziv, String email, String telefonskaStevilka, String prevzem, String opis, int tk_idKraj, int tk_idUporabnik) {
+        this.idKmetija=idKmetija;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.email = email;
+        this.telefonskaStevilka = telefonskaStevilka;
+        this.prevzem = prevzem;
+        this.tk_idKraj = tk_idKraj;
+        this.tk_idUporabnik = tk_idUporabnik;
+    }
+
+
+
     public Kmetija(String naziv){
         this.naziv=naziv;
     }
@@ -26,19 +41,43 @@ public class Kmetija {
         this.prevzem = prevzem;
     }
     public Kmetija(String naziv, String opis, String email, String telefonskaStevilka, String prevzem, int id_kmetija) {
-            this.naziv = naziv;
-            this.opis = opis;
-            this.email = email;
-            this.telefonskaStevilka = telefonskaStevilka;
-            this.prevzem = prevzem;
-            this.idKmetija = id_kmetija;
-        }
-  
-      @Autowired
+        this.naziv = naziv;
+        this.opis = opis;
+        this.email = email;
+        this.telefonskaStevilka = telefonskaStevilka;
+        this.prevzem = prevzem;
+        this.idKmetija = id_kmetija;
+    }
+
+    @Autowired
     public Kmetija(int idKmetija, String naziv) {
-        this.id=idKmetija;
+        this.idKmetija=idKmetija;
         this.naziv = naziv;
 
+    }
+
+    public int getIdKmetija() {
+        return idKmetija;
+    }
+
+    public void setIdKmetija(int idKmetija) {
+        this.idKmetija = idKmetija;
+    }
+
+    public int getTk_idKraj() {
+        return tk_idKraj;
+    }
+
+    public void setTk_idKraj(int tk_idKraj) {
+        this.tk_idKraj = tk_idKraj;
+    }
+
+    public int getTk_idUporabnik() {
+        return tk_idUporabnik;
+    }
+
+    public void setTk_idUporabnik(int tk_idUporabnik) {
+        this.tk_idUporabnik = tk_idUporabnik;
     }
 
     public String getNaziv() {
@@ -80,14 +119,11 @@ public class Kmetija {
     public void setPrevzem(String prevzem) {
         this.prevzem = prevzem;
     }
-    public int getidKmetijaa() { return idKmetija; }
-
-        public void setidKmetija(int id_kmetija) { this.idKmetija = id_kmetija; }
 
     @Override
     public String toString() {
         return "Kmetija{" +
-                "id=" + id +
+                "idKmetija=" + idKmetija +
                 ", naziv='" + naziv + '\'' +
                 ", opis='" + opis + '\'' +
                 ", email='" + email + '\'' +

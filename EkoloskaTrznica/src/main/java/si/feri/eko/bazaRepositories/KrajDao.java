@@ -25,10 +25,11 @@ public class KrajDao {
         List<Kraj> ret = new ArrayList<Kraj>();
         List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
         for (Map row : rows) {
+            int idKraj = (int) row.get("idKraj");
             int postnaStevilka = (int) row.get("postnaStevilka");
             String obcina = (String)row.get("obcina");
             String regija = (String)row.get("regija");
-            ret.add(new Kraj(postnaStevilka, obcina, regija));
+            ret.add(new Kraj(idKraj,postnaStevilka, obcina, regija));
         }
         return ret;
     }
@@ -54,4 +55,70 @@ public class KrajDao {
         }
         return ret;
     }
+
+
+
+
+
+
+
+
+
+
+    public int getId(int postnaStevilka){
+        String sql="SELECT idKraj FROM kraj WHERE PostnaStevilka= '"+postnaStevilka+"'";
+        int id=Integer.parseInt(jdbcTemplate.queryForObject(sql, String.class));
+        return id;
+    }
+
+
+
+
+
+
+    public String getRegija(int tk_idKraj){
+        String sql="SELECT regija FROM kraj WHERE idKraj= '"+tk_idKraj+"'";
+        String regija = (String)jdbcTemplate.queryForObject(sql, String.class);
+        return regija;
+    }
+
+
+
+
+    public ArrayList<Integer> getIdRegija(String regija){
+
+        String sql="SELECT * FROM kraj WHERE Regija= '"+regija+"'";
+
+
+        ArrayList<Integer> intArray = new ArrayList<>();
+        List<Map<String,Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            int idKraj = (int) row.get("idKraj");
+            intArray.add(idKraj);
+        }
+        return intArray;
+    }
+
+
+    public boolean obstajaKraj(int postnaStevilka){
+        String sql ="SELECT * FROM Kraj WHERE postnaStevilka='"+postnaStevilka+"'";
+
+        List<Map<String,Object>> rows =  jdbcTemplate.queryForList(sql);
+
+            if(rows.isEmpty())
+            {
+                return false;
+            }
+            return true;
+
+    }
+
+    public String vrniKraj(int id){
+        String sql = "SELECT obcina FROM kraj WHERE idKraj = '"+id+"'";
+        String kraj = (String)jdbcTemplate.queryForObject(sql, String.class);
+
+        return kraj;
+    }
+
+
 }

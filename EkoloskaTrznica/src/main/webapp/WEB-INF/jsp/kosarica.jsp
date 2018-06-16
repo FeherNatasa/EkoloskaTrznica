@@ -4,14 +4,14 @@
 
 <html lang="sl">
 <head>
-    <title>Kmetije</title>
+    <title>Košarica</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/Boot.css" type="text/css" />
+    <link rel="stylesheet" href="/css/Boot.css" type="text/css" />
 
 
     <link href='https://www.fonts.com/font/exljbris/museo-slab?QueryFontType=Web&src=GoogleWebFonts' rel='stylesheet' type='text/css'>
@@ -24,159 +24,147 @@
 <nav class="container header">
     <div class="container-fluid text-center">
 	<span class="align-text-top spanheader">
-        <a href="profil">Moj profil</a>&nbsp&nbsp
-        <a href="vpis">Vpis</a>&nbsp&nbsp
-		<a href="registracija">Registracija</a>
+         <c:choose>
+             <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                 <a class="tekst" href="/profil">Profil</a>&nbsp&nbsp
+             </c:when>
+             <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==false}">
+                 <a class="tekst"href="/registracija">Registracija</a>
+             </c:when>
+             <c:otherwise>
+             </c:otherwise>
+         </c:choose>
+        <c:choose>
+            <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==true}">
+                <a class="tekst" href='<c:url value="/logout" />'>Logout</a>
+            </c:when>
+            <c:when test = "${pageContext.request.isUserInRole('ROLE_USER')==false}">
+                <a class="tekst" href="/vpis">Vpis</a>&nbsp&nbsp
+            </c:when>
+            <c:otherwise>
+            </c:otherwise>
+        </c:choose>
+
 	</span><br/>
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
-                <img class="logo img-fluid" src="slike/eko2.png">
+                <img  type="image/png" class="logo img-fluid" src="/images/eko2.png">
             </div>
             <div class="col-sm-3">
             </div>
         </div>
         <br/><br/>
-        <nav class="navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav" role="tablist">
-                    <li><a href="domov">Domov</a></li>
-                    <li><a href="onas">O nas</a></li>
-                    <li><a href="kmetije">Kmetije</a></li>
-                    <li><a href="dodajanjeProduktov">Produkti</a></li>
-                    <li><a href="kontakt">Kontakt</a></li>
-                    <li><a href="kosarica">Košarica</a></li>
+        <nav class="navbar navbar-default navbar-justified">
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="nav navbar-nav " role="tablist">
+                    <li><a class="tekst" href="/domov">Domov</a></li>
+                    <li><a class="tekst" href="/onas">O nas</a></li>
+                    <li><a class="tekst" href="/kmetije">Ponudniki</a></li>
+                    <li class="dropdown dropdown-large">
+                        <a href="/kmetije" class="dropdown-toggle tekst" data-toggle="dropdown">Kmetije<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu dropdown-menu-large  row">
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">POMURSKA REGIJA</li>
+                                    <c:forEach items="${pomurska}" var="k">
+                                        <li><a  href="/kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">KOROŠKA REGIJA</li>
+                                    <c:forEach items="${koroska}" var="o">
+                                        <li><a  href="/kmetija/${o.idKmetija}"><p>${o.naziv}</p></a></li>
+                                    </c:forEach>
+
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">GORENJSKA REGIJA</li>
+                                    <c:forEach items="${gorenjska}" var="k">
+                                        <li><a  href="/kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">PODRAVSKA REGIJA</li>
+                                    <c:forEach items="${podravska}" var="k">
+                                        <li><a  href="/kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header text-center">DOLENJSKA REGIJA</li>
+                                    <c:forEach items="${dolenjska}" var="k">
+                                        <li><a  href="/kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header text-center">OSREDNJESLOVENSKA <br/>REGIJA</li>
+                                    <c:forEach items="${osrednjeslovenska}" var="k">
+                                        <li><a  href="/kmetija/${k.idKmetija}">${k.naziv}</a></li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><a class="tekst" href="/kontakt">Kontakt</a></li>
                 </ul>
-            </div>
+                <div class="col-sm-3 col-md-3 pull-right">
+                    <form action="/isci" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Iskanje" name="freeText">
+                            <div class="input-group-btn">
+                                <button id="search-field-btn" class="btn btn-default">Išči
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- /.nav-collapse -->
         </nav>
-        <hr>
     </div>
 </nav>
 
 <div class ="body"> <!-- body -->
 
-    <div class=container>
+    <div class="container">
+        <div class="container">
+            <table class="table table-hover">
+                <tr>
+                    <th>Naziv</th>
+                    <th>Količina</th>
+                    <th>Cena</th>
+                    <c:if test="${cenaKos!=0}">
+                        <th>
+                            SKUPAJ: ${cenaKos}
+                        </th>
+                    </c:if>
+                </tr>
+                <c:forEach items="${izdelki}" var="k">
+                    <tr>
+                        <td>${k.naziv}</td>
+                        <td>${k.kolicina}</td>
+                        <td>${k.cena}</td>
+                        <td> <a class="btn btn-default gumbPreklici" type="button" href="/kosarica/odstrani/${k.id} ">ODSTRANI</a></td>
+                    </tr>
 
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <p>slika</p>
-            </div>
-
-            <div class="col-sm-6 text-center">
-                <p>naziv</p>
-            </div>
-
-            <div class="col-sm-3 text-center">
-                <p>cena</p>
-            </div>
+                </c:forEach>
+            </table>
         </div>
 
-        <hr>
-
-
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <p>slika</p>
-            </div>
-
-            <div class="col-sm-6 text-center">
-                <p>naziv</p>
-            </div>
-
-            <div class="col-sm-3 text-center">
-                <p>cena</p>
-            </div>
-        </div>
-
-        <hr>
-
-
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <p>slika</p>
-            </div>
-
-            <div class="col-sm-6 text-center">
-                <p>naziv</p>
-            </div>
-
-            <div class="col-sm-3 text-center">
-                <p>cena</p>
-            </div>
-        </div>
-
-        <hr>
-
-
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <p>slika</p>
-            </div>
-
-            <div class="col-sm-6 text-center">
-                <p>naziv</p>
-            </div>
-
-            <div class="col-sm-3 text-center">
-                <p>cena</p>
-            </div>
-        </div>
-
-        <hr>
-
-
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <p>slika</p>
-            </div>
-
-            <div class="col-sm-6 text-center">
-                <p>naziv</p>
-            </div>
-
-            <div class="col-sm-3 text-center">
-                <p>cena</p>
-            </div>
-        </div>
-
-        <hr>
-
-
-        <div class="row">
-            <div class="col-sm-3 text-center">
-                <p>slika</p>
-            </div>
-
-            <div class="col-sm-6 text-center">
-                <p>naziv</p>
-            </div>
-
-            <div class="col-sm-3 text-center">
-                <p>cena</p>
-            </div>
-        </div>
-        <br><br><br>
-
-        <!--
-        <div class="row">
-        <div class="col-sm-6 text-center">
-         <button type="button" class="btn btn-default gumbKupi ">Prekliči</button>
-         </div>
-         <div class="col-sm-6 text-center">
-          <button type="button" class="btn btn-default gumbKupi">Kupi</button>
-
-        </div>
-        </div>
-         -->
 
         <div class="row">
             <div class="col-sm-6 text-center">
-
+                <form>
+                    <input type="button" class="btn btn-default" value="Nazaj" onclick="window.location.href='/kmetije'"/>
+                </form>
             </div>
             <div class="col-sm-6 text-right">
-                <button type="button" class="btn btn-default gumbPreklici ">Prekliči</button>
-                <button type="button" class="btn btn-default gumbKupi">Kupi</button>
+                <a href="/kosarica/sprazni"type="button" class="btn btn-default gumbPreklici ">Preklici</a>
+                <a href="/kosarica/sprazni"type="button" class="btn btn-default gumbKupi ">Kupi</a>
 
             </div>
 
